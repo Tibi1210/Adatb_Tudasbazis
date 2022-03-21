@@ -22,11 +22,12 @@ include "../connect.php";
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-        <!-- A navigációs menü 1. opciója. -->
+      <li class="nav-item">
+          <a class="nav-link" href="admin_list.php">Adminok</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="user_list.php">Felhasználók</a>
         </li>
-        <!-- A navigációs menü 2. opciója. -->
         <li class="nav-item">
           <a class="nav-link" href="article_list.php">Cikkek</a>
         </li>
@@ -96,7 +97,7 @@ include "../connect.php";
         <div class="col my-3">
           <div class="card border-hover-primary hover-scale">
             <div class="card-body">
-              <h4 class="font-weight-bold mb-3">Users:</h4>
+              <h4 class="font-weight-bold mb-3">Felhasználók:</h4>
               <div class="custyle">
                 <?php
 
@@ -129,7 +130,7 @@ include "../connect.php";
         </div>
       </div>
     </div>
-  </section>
+              </div>
 
   <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
     <a class="navbar-brand" href="#top">TOP</a>

@@ -22,11 +22,12 @@ include "../connect.php";
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-        <!-- A navigációs menü 1. opciója. -->
+        <li class="nav-item">
+          <a class="nav-link" href="admin_list.php">Adminok</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="user_list.php">Felhasználók</a>
         </li>
-        <!-- A navigációs menü 2. opciója. -->
         <li class="nav-item">
           <a class="nav-link" href="article_list.php">Cikkek</a>
         </li>
@@ -44,7 +45,7 @@ include "../connect.php";
     </div>
   </div>
 
-  <section class="py-6 bg-light-primary">
+  <div class="py-6 bg-light-primary">
     <div class="container">
       <div class="row row-cols-lg- row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6 aos-init aos-animate" data-aos="fade-up">
         <div class="col my-3">
@@ -114,7 +115,7 @@ include "../connect.php";
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
     <a class="navbar-brand" href="#top">TOP</a>
