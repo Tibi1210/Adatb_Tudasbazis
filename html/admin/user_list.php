@@ -146,38 +146,56 @@
               <div class="card-body">
                 <h4 class="font-weight-bold mb-3">Users:</h4>
                 <div class="custyle">
-                  <table class="table table-striped custab">
-                    <thead>
-                      <tr>
-                        <th>First name</th>
-                        <th>Last name</th>
-                        <th>Email</th>
-                        <th>Birthday</th>
-                        <th>Szerzö????</th>
-                        <th>Password</th>
-                        <th class="text-center">Action</th>
-                      </tr>
-                    </thead>
-                    <!-- Hogy pakolod bele a databaseből??? -->
-                    <tr>
-                      <td>Vajda</td>
-                      <td>Tibor</td>
-                      <td>valami@email.com</td>
-                      <td>2022</td>
-                      <td>valami</td>
-                      <td>valami</td>
-                      <td>
-                        <a class="btn btn-info btn-xs" href="#"
-                          ><span class="glyphicon glyphicon-edit"></span>
-                          Edit</a
-                        >
-                        <a href="#" class="btn btn-danger btn-xs"
-                          ><span class="glyphicon glyphicon-remove"></span>
-                          Del</a
-                        >
-                      </td>
-                    </tr>
-                  </table>
+
+                <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+
+$username = "home";                  // Use your username
+$password = "asd";             // and your password
+$database = "localhost/XE";   // and the connect string to connect to your database
+
+$query = "select * from FELHASZNALO";
+
+$c = oci_connect($username, $password, $database);
+if (!$c) {
+  $m = oci_error();
+  trigger_error('Could not connect to database: ' . $m['message'], E_USER_ERROR);
+}
+
+$s = oci_parse($c, $query);
+if (!$s) {
+  $m = oci_error($c);
+  trigger_error('Could not parse statement: ' . $m['message'], E_USER_ERROR);
+}
+$r = oci_execute($s);
+if (!$r) {
+  $m = oci_error($s);
+  trigger_error('Could not execute statement: ' . $m['message'], E_USER_ERROR);
+}
+
+echo "<table class='table table-striped custab'>\n";
+$ncols = oci_num_fields($s);
+echo "<tr>\n";
+for ($i = 1; $i <= $ncols; ++$i) {
+  $colname = oci_field_name($s, $i);
+  echo "  <th><b>" . htmlspecialchars($colname, ENT_QUOTES | ENT_SUBSTITUTE) . "</b></th>\n";
+}
+echo "</tr>\n";
+
+while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+  echo "<tr>\n";
+  foreach ($row as $item) {
+    echo "<td>";
+    echo $item !== null ? htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE) : "&nbsp;";
+    echo "</td>\n";
+  }
+  echo "</tr>\n";
+}
+echo "</table>\n";
+
+?>
                 </div>
               </div>
             </div>
