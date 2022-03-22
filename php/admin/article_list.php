@@ -93,7 +93,7 @@ include "../functions/query.php";
                 echo "<tr>\n";
                 for ($i = 1; $i <= $ncols; ++$i) {
                   $colname = oci_field_name($s, $i);
-                  echo "  <th><b>" . htmlspecialchars($colname, ENT_QUOTES | ENT_SUBSTITUTE) . "</b></th>\n";
+                  echo "  <th><b>" . $colname . "</b></th>\n";
                 }
                 echo "</tr>\n";
 
@@ -101,12 +101,13 @@ include "../functions/query.php";
                   echo "<tr>\n";
                   foreach ($row as $item) {
                     echo "<td>";
-                    echo $item !== null ? htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE) : "&nbsp;";
+                    echo $item !== null ? $item : "&nbsp;";
                     echo "</td>\n";
                   }
                   echo "</tr>\n";
                 }
                 echo "</table>\n";
+
                 ?>
               </div>
             </div>
