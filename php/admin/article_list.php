@@ -1,5 +1,5 @@
 <?php
-include "../connect.php";
+include "../functions/query.php";
 ?>
 
 <!DOCTYPE html>
@@ -86,8 +86,7 @@ include "../connect.php";
               <div class="custyle">
                 <?php
 
-                $query = "select * from CIKK";
-                include "../manage.php";
+                $s = query("select * from CIKK");
 
                 echo "<table class='table table-striped custab'>\n";
                 $ncols = oci_num_fields($s);

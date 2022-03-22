@@ -1,5 +1,5 @@
 <?php
-include "../connect.php";
+include "../functions/query.php";
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ include "../connect.php";
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-      <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="admin_list.php">Adminok</a>
         </li>
         <li class="nav-item">
@@ -101,8 +101,7 @@ include "../connect.php";
               <div class="custyle">
                 <?php
 
-                $query = "select * from FELHASZNALO";
-                include "../manage.php";
+                $s = query("select * from FELHASZNALO");
 
                 echo "<table class='table table-striped custab'>\n";
                 $ncols = oci_num_fields($s);
@@ -130,14 +129,14 @@ include "../connect.php";
         </div>
       </div>
     </div>
-              </div>
+    </div>
 
-  <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
-    <a class="navbar-brand" href="#top">TOP</a>
-  </nav>
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
+      <a class="navbar-brand" href="#top">TOP</a>
+    </nav>
 
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-include "../connect.php";
+include "../functions/query.php";
 ?>
 
 <!DOCTYPE html>
@@ -59,8 +59,7 @@ include "../connect.php";
                   <div class="m-sm-4">
                     <?php
 
-                    $query = "select * from ADMIN";
-                    include "../manage.php";
+                    $s = query("select * from ADMIN");
 
                     echo "<table class='table table-striped custab'>\n";
                     $ncols = oci_num_fields($s);
