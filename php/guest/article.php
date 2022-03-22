@@ -107,39 +107,39 @@ if ($_GET["src_GET"]) {
             <div class="card-body">
               <div class="custyle">
 
+                <!--Cím-->
                 <?php
                 $s = query("SELECT cim FROM CIKK WHERE cim='$search'");
-                if ($search != "" && oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS) != false) {
-
-                  echo " <div class='font-weight-bold topic-title'>";
-                  while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                    foreach ($row as $item) {
-                      echo $item !== null ? $item : "&nbsp;";
-                    }
+                echo " <div class='font-weight-bold topic-title'>";
+                while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                  foreach ($row as $item) {
+                    echo $item !== null ? $item : "&nbsp;";
                   }
-                  echo "</div>";
+                }
+                echo "</div>";
                 ?>
 
-                  <div class="line-horizontal"></div>
-                  <div class="topic-body">
+                <div class='line-horizontal'></div>
+                <div class='topic-body'>
 
+                  <!--Tartalom-->
                   <?php
                   $s = query("SELECT tartalom FROM CIKK WHERE cim='$search'");
+                  $row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS);
 
-                  while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                  if ($search != "" && $row) {
                     foreach ($row as $item) {
                       echo $item !== null ? $item : "&nbsp;";
                     }
+                  } else {
+                    echo "<p>ERROR: nincs ilyen cikk az adatbázisban :(</p>";
                   }
-                } else {
-                  echo "<p>ERROR: nincs ilyen cikk az adatbázisban :(</p>";
-                }
                   ?>
 
-                  </div>
-                  <div class="topic-logobox">
-                    <img src="../../src/small.png" class="topic-logo" />
-                  </div>
+                </div>
+                <div class="topic-logobox">
+                  <img src="../../src/small.png" class="topic-logo" />
+                </div>
               </div>
             </div>
           </div>
