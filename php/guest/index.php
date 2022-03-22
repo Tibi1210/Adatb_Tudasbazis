@@ -1,14 +1,7 @@
 <?php
 include "../functions/query.php";
-
-if ($_GET["src_GET"]) {
-  $search = strtolower($_GET["src_GET"]);
-} else {
-  $search = "";
-}
-
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="hu-HU">
@@ -16,16 +9,7 @@ if ($_GET["src_GET"]) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <?php
-  $s = query("SELECT cim FROM CIKK WHERE cim='$search'");
-  echo " <title>";
-  while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-    foreach ($row as $item) {
-      echo $item !== null ? $item : "&nbsp;";
-    }
-  }
-  echo "</title>";
-  ?>
+  <title>Mindentudó</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
   <link rel="stylesheet" href="../../css/css.css" />
 </head>
@@ -75,7 +59,6 @@ if ($_GET["src_GET"]) {
     <br />
     <div class="row justify-content-center">
       <div class="col-12 col-md-10 col-lg-8">
-
         <form class="card card-sm" action="article.php" method="get">
           <div class="card-body row no-gutters align-items-center">
             <div class="col-auto">
@@ -91,56 +74,43 @@ if ($_GET["src_GET"]) {
             </div>
           </div>
         </form>
-
       </div>
     </div>
     <br />
   </div>
 
-  <div class="py-6 bg-light-primary">
+  <section class="py-6 bg-light-primary">
     <div class="container">
-      <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
-        <div class="col my-3">
-          <div class="card border-hover-primary hover-scale">
-            <div class="card-body">
-              <div class="custyle">
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6 aos-init aos-animate" data-aos="fade-up">
+        <!-- Cards -->
+          <?php
+          $s = query("select * from CIKK");
 
-                <?php
-                $s = query("SELECT cim FROM CIKK WHERE cim='$search'");
-                echo " <div class='font-weight-bold topic-title'>";
-                while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                  foreach ($row as $item) {
-                    echo $item !== null ? $item : "&nbsp;";
-                  }
-                }
-                echo "</div>";
-                ?>
+          while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+            foreach ($row as $item) {
+              $cim=$item;
+              break;
+            }
+            echo "<div class='col my-3'>";
+            echo "<a class='card border-hover-primary hover-scale' href='article.php?src_GET=$cim'>\n";
+            echo "<div class='card-body'>\n";
+            echo "<div class='text-primary mb-5'>\n";
+            echo "<img src='../../src/logo.png' width='200' height='90' />\n";
+            echo "</div>\n";
 
-                <div class="line-horizontal"></div>
-                <div class="topic-body">
+            echo "<div class='font-weight-bold topic-title mb-3'>\n";
+            echo "<p>$cim</p>";
+            echo "</div>\n";
 
-                  <?php
-                  $s = query("SELECT tartalom FROM CIKK WHERE cim='$search'");
-
-                  while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                    foreach ($row as $item) {
-                      echo $item !== null ? $item : "&nbsp;";
-                    }
-                  }
-                  ?>
-
-                </div>
-                <div class="topic-logobox">
-                  <img src="../../src/small.png" class="topic-logo" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+            echo "</div>\n";
+            echo "</a>\n";
+            echo "</div>\n";
+          }
+          ?>
+        <!-- Cards -->
       </div>
     </div>
-  </div>
-  </div>
+  </section>
 
   <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
     <a class="navbar-brand" href="#top">TOP</a>
