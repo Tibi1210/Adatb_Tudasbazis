@@ -17,3 +17,11 @@ regisztráció után, a bejelentkezett felhasználó cikkeket tud feltölteni. E
 ellenőrzi a tartalmakat mielőtt azok megjelennének a nyilvánosság előtt. Lehetőség van a
 feltöltött cikkek olvasására, böngészésére is, melyhez nem szükséges a regisztráció sem.
 Témakörök, altémakörök és kulcsszavak alapján is lehet keresni a cikkeket.
+
+# Csatlakozási segédlet
+
+### php/functions/query.php
+<br>
+<img src="src/help.png"
+     alt="help"
+     style="float: left; margin-right: 10px;" />
