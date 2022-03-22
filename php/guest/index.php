@@ -85,7 +85,6 @@ include "../functions/query.php";
         <!-- Cards -->
         <?php
         $s = query("select * from CIKK");
-        if ($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS) != false) {
           while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
             foreach ($row as $item) {
               $cim = $item;
@@ -106,20 +105,6 @@ include "../functions/query.php";
             echo "</a>\n";
             echo "</div>\n";
           }
-        } else {
-          echo "<div class='col my-3'>";
-          echo "<div class='card border-hover-primary hover-scale' >\n";
-          echo "<div class='card-body'>\n";
-          echo "<div class='text-primary mb-5'>\n";
-          echo "<img src='../../src/logo.png' width='200' height='90' />\n";
-          echo "</div>\n";
-          echo "<div class='font-weight-bold topic-title mb-3'>\n";
-          echo "<p>ERROR: nincs cikk az adatbázisban :(</p>";
-          echo "</div>\n";
-          echo "</div>\n";
-          echo "</div>\n";
-          echo "</div>\n";
-        }
         ?>
         <!-- Cards -->
       </div>
