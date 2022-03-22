@@ -19,10 +19,10 @@ if ($_GET["src_GET"]) {
   <?php
   $s = query("SELECT cim FROM CIKK WHERE cim='$search'");
   echo " <title>";
-  while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-    foreach ($row as $item) {
-      echo $item !== null ? $item : "&nbsp;";
-    }
+  if ($search != "" && oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS) != false) {
+    echo $search;
+  } else {
+    echo "Mindentudó";
   }
   echo "</title>";
   ?>
@@ -82,7 +82,9 @@ if ($_GET["src_GET"]) {
               <i class="fas fa-search h4 text-body"></i>
             </div>
             <div class="col">
-              <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search..." id="src_bar" name="src_GET" />
+              <?php
+              echo "<input class='form-control form-control-lg form-control-borderless' type='search' value='$search' placeholder='Search...' id='src_bar' name='src_GET' />"
+              ?>
             </div>
             <div class="col-auto">
               <button class="btn btn-lg btn-success" id="btn_src" type="submit">
@@ -107,17 +109,19 @@ if ($_GET["src_GET"]) {
 
                 <?php
                 $s = query("SELECT cim FROM CIKK WHERE cim='$search'");
-                echo " <div class='font-weight-bold topic-title'>";
-                while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                  foreach ($row as $item) {
-                    echo $item !== null ? $item : "&nbsp;";
+                if ($search != "" && oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS) != false) {
+
+                  echo " <div class='font-weight-bold topic-title'>";
+                  while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                    foreach ($row as $item) {
+                      echo $item !== null ? $item : "&nbsp;";
+                    }
                   }
-                }
-                echo "</div>";
+                  echo "</div>";
                 ?>
 
-                <div class="line-horizontal"></div>
-                <div class="topic-body">
+                  <div class="line-horizontal"></div>
+                  <div class="topic-body">
 
                   <?php
                   $s = query("SELECT tartalom FROM CIKK WHERE cim='$search'");
@@ -127,12 +131,15 @@ if ($_GET["src_GET"]) {
                       echo $item !== null ? $item : "&nbsp;";
                     }
                   }
+                } else {
+                  echo "<p>ERROR: nincs ilyen cikk az adatbázisban :(</p>";
+                }
                   ?>
 
-                </div>
-                <div class="topic-logobox">
-                  <img src="../../src/small.png" class="topic-logo" />
-                </div>
+                  </div>
+                  <div class="topic-logobox">
+                    <img src="../../src/small.png" class="topic-logo" />
+                  </div>
               </div>
             </div>
           </div>
