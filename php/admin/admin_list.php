@@ -8,7 +8,7 @@ include "../functions/query.php";
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Felhasználók</title>
+  <title>Adminok</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
   <link rel="stylesheet" href="../../css/css.css" />
 </head>
@@ -45,52 +45,82 @@ include "../functions/query.php";
     </div>
   </div>
 
-  <section class="py-6 bg-light-primary">
+  <div class="py-6 bg-light-primary">
     <div class="container">
-      <div class="container h-100">
-        <div class="row h-100">
-          <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
-            <div class="d-table-cell align-middle">
-              <div class="card">
-                <div class="card-body">
-                  <div class="text-center mt-4">
-                    <h1 class="h2">Adminok</h1>
+      <div class="row row-cols-lg- row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6 aos-init aos-animate" data-aos="fade-up">
+        <div class="col my-3">
+          <div class="card border-hover-primary hover-scale">
+            <div class="card-body">
+              <h4 class="font-weight-bold mb-3">Új felhasználó:</h4>
+              <div class="m-sm-4">
+                <form>
+                  <div class="form-group">
+                    <label>Felhasználónév</label>
+                    <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="felhasznalonev" />
                   </div>
-                  <div class="m-sm-4">
-                    <?php
-
-                    $s = query("select * from ADMIN");
-
-                    echo "<table class='table table-striped custab'>\n";
-                    $ncols = oci_num_fields($s);
-                    echo "<tr>\n";
-                    for ($i = 1; $i <= $ncols; ++$i) {
-                      $colname = oci_field_name($s, $i);
-                      echo "  <th><b>" . htmlspecialchars($colname, ENT_QUOTES | ENT_SUBSTITUTE) . "</b></th>\n";
-                    }
-                    echo "</tr>\n";
-
-                    while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                      echo "<tr>\n";
-                      foreach ($row as $item) {
-                        echo "<td>";
-                        echo $item !== null ? htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE) : "&nbsp;";
-                        echo "</td>\n";
-                      }
-                      echo "</tr>\n";
-                    }
-                    echo "</table>\n";
-                    ?>
+                  <div class="form-group">
+                    <br />
+                    <label>Intézet</label>
+                    <input class="form-control form-control-lg" type="text" name="intezet" placeholder="intezet" />
                   </div>
-                </div>
+                  <div class="form-group">
+                    <br />
+                    <label>Tudományos fokozat:</label>
+                    <input class="form-control form-control-lg" type="text" name="tudomanyos_fokozat" placeholder="fokozat" />
+                  </div>
+                  <div class="form-group">
+                    <br />
+                    <label>Szakterület</label>
+                    <input class="form-control form-control-lg" type="password" name="szakterulet" placeholder="szakterulet" />
+                  </div>
+                  <div class="text-center mt-3">
+                    <br />
+                    <button type="submit" class="btn btn-lg btn-primary" id="btn_src">
+                      Létrehozás
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col my-3">
+          <div class="card border-hover-primary hover-scale">
+            <div class="card-body">
+              <h4 class="font-weight-bold mb-3">Felhasználók:</h4>
+              <div class="custyle">
+                <?php
+
+                $s = query("select * from ADMIN");
+
+                echo "<table class='table table-striped custab'>\n";
+                $ncols = oci_num_fields($s);
+                echo "<tr>\n";
+                for ($i = 1; $i <= $ncols; ++$i) {
+                  $colname = oci_field_name($s, $i);
+                  echo "  <th><b>" . htmlspecialchars($colname, ENT_QUOTES | ENT_SUBSTITUTE) . "</b></th>\n";
+                }
+                echo "</tr>\n";
+
+                while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                  echo "<tr>\n";
+                  foreach ($row as $item) {
+                    echo "<td>";
+                    echo $item !== null ? htmlspecialchars($item, ENT_QUOTES | ENT_SUBSTITUTE) : "&nbsp;";
+                    echo "</td>\n";
+                  }
+                  echo "</tr>\n";
+                }
+                echo "</table>\n";
+                ?>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
+  </div>
+  </div>
 
   <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
     <a class="navbar-brand" href="#top">TOP</a>

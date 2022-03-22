@@ -87,7 +87,7 @@ include "../functions/query.php";
                 <?php
 
                 $s = query("select * from CIKK");
-
+                
                 echo "<table class='table table-striped custab'>\n";
                 $ncols = oci_num_fields($s);
                 echo "<tr>\n";

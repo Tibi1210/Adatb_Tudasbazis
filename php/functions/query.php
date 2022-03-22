@@ -24,5 +24,3 @@ function query($asd)
   }
   return $s;
 }
-
-?>

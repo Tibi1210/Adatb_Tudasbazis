@@ -45,7 +45,7 @@ include "../functions/query.php";
     </div>
   </div>
 
-  <section class="py-6 bg-light-primary">
+  <div class="py-6 bg-light-primary">
     <div class="container">
       <div class="row row-cols-lg- row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6 aos-init aos-animate" data-aos="fade-up">
         <div class="col my-3">
@@ -86,7 +86,7 @@ include "../functions/query.php";
                   <div class="text-center mt-3">
                     <br />
                     <button type="submit" class="btn btn-lg btn-primary" id="btn_src">
-                      Add user
+                      Létrehozás
                     </button>
                   </div>
                 </form>
@@ -129,14 +129,15 @@ include "../functions/query.php";
         </div>
       </div>
     </div>
-    </div>
+  </div>
+  </div>
 
-    <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
-      <a class="navbar-brand" href="#top">TOP</a>
-    </nav>
+  <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
+    <a class="navbar-brand" href="#top">TOP</a>
+  </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </body>
 
 </html>
