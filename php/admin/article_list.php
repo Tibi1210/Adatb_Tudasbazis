@@ -76,7 +76,7 @@ include "../functions/query.php";
                   <div class="form-group">
                     <br />
                     <label>Tartalom</label>
-                    <input class="form-control form-control-lg" type="text" name="tartalom" placeholder="Tartalom" />
+                      <textarea class="form-control form-control-lg"  name="tartalom" placeholder="Tartalom" ></textarea>
                   </div>
                   <div class="form-group">
                     <br />
