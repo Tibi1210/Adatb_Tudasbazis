@@ -1,6 +1,6 @@
 # Tudásadatbázis
 
-Adatbázis alapú rendszerek kötelező feladat
+Adatbázis alapú rendszerek kötelező feladat. :)
 
 # Csapattagok
 
