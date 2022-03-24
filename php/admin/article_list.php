@@ -31,6 +31,9 @@ include "../functions/query.php";
         <li class="nav-item">
           <a class="nav-link" href="article_list.php">Cikkek</a>
         </li>
+		 <li class="nav-item">
+          <a class="nav-link" href="source_list.php">Források</a>
+        </li>
       </ul>
     </div>
   </nav>
