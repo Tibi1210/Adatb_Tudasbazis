@@ -8,7 +8,7 @@ include "../functions/query.php";
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Források</title>
+    <title>Módosítás</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous" />
     <link rel="stylesheet" href="../../css/css.css" />
 </head>
@@ -66,7 +66,7 @@ include "../functions/query.php";
             <div class="col my-3">
                 <div class="card border-hover-primary hover-scale">
                     <div class="card-body">
-                        <h4 class="font-weight-bold mb-3">Új forrás:</h4>
+                        <h4 class="font-weight-bold mb-3">Új módosítás:</h4>
                         <div class="m-sm-4">
                             <form>
                                 <div class="form-group">
@@ -75,13 +75,13 @@ include "../functions/query.php";
                                 </div>
                                 <div class="form-group">
                                     <br />
-                                    <label>Hivatkozás</label>
-                                    <input class="form-control form-control-lg" type="text" name="hivatkozas" placeholder="Hivatkozás" />
+                                    <label>Mikor</label>
+                                    <input class="form-control form-control-lg" type="text" name="mikor" placeholder="Mikor" />
                                 </div>
                                 <div class="form-group">
                                     <br />
-                                    <label>Tartalom</label>
-                                    <input class="form-control form-control-lg" type="text" name="tartalom" placeholder="Tartalom" />
+                                    <label>Felhasználónév</label>
+                                    <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="Felhasználónév" />
                                 </div>
                                 <div class="text-center mt-3">
                                     <br />
@@ -97,11 +97,11 @@ include "../functions/query.php";
             <div class="col my-3">
                 <div class="card border-hover-primary hover-scale">
                     <div class="card-body">
-                        <h4 class="font-weight-bold mb-3">Források:</h4>
+                        <h4 class="font-weight-bold mb-3">Módosítások:</h4>
                         <div class="custyle">
                             <?php
 
-                            $s = query("select * from FORRAS");
+                            $s = query("select * from MODOSITAS");
 
                             echo "<table class='table table-striped custab'>\n";
                             $ncols = oci_num_fields($s);

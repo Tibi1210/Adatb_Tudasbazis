@@ -22,15 +22,30 @@ include "../functions/query.php";
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="admin_list.php">Adminok</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="user_list.php">Felhasználók</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="article_list.php">Cikkek</a>
-        </li>
+          <li class="nav-item">
+              <a class="nav-link" href="admin_list.php">Adminok</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="user_list.php">Felhasználók</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="article_list.php">Cikkek</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="source_list.php">Források</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="error_list.php">Hibák</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="modify_list.php">Módosítás</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="topic_list.php">Témakörök</a>
+          </li>
       </ul>
     </div>
   </nav>
@@ -51,27 +66,27 @@ include "../functions/query.php";
         <div class="col my-3">
           <div class="card border-hover-primary hover-scale">
             <div class="card-body">
-              <h4 class="font-weight-bold mb-3">Új felhasználó:</h4>
+              <h4 class="font-weight-bold mb-3">Új admin:</h4>
               <div class="m-sm-4">
                 <form>
                   <div class="form-group">
                     <label>Felhasználónév</label>
-                    <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="felhasznalonev" />
+                    <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="Felhasználónév" />
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Intézet</label>
-                    <input class="form-control form-control-lg" type="text" name="intezet" placeholder="intezet" />
+                    <input class="form-control form-control-lg" type="text" name="intezet" placeholder="Intézet" />
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Tudományos fokozat:</label>
-                    <input class="form-control form-control-lg" type="text" name="tudomanyos_fokozat" placeholder="fokozat" />
+                    <input class="form-control form-control-lg" type="text" name="tudomanyos_fokozat" placeholder="Tudományos fokozat" />
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Szakterület</label>
-                    <input class="form-control form-control-lg" type="password" name="szakterulet" placeholder="szakterulet" />
+                    <input class="form-control form-control-lg" type="password" name="szakterulet" placeholder="Szakterület" />
                   </div>
                   <div class="text-center mt-3">
                     <br />
@@ -87,7 +102,7 @@ include "../functions/query.php";
         <div class="col my-3">
           <div class="card border-hover-primary hover-scale">
             <div class="card-body">
-              <h4 class="font-weight-bold mb-3">Felhasználók:</h4>
+              <h4 class="font-weight-bold mb-3">Adminok:</h4>
               <div class="custyle">
                 <?php
 

@@ -22,18 +22,30 @@ include "../functions/query.php";
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="admin_list.php">Adminok</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="user_list.php">Felhasználók</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="article_list.php">Cikkek</a>
-        </li>
-		 <li class="nav-item">
-          <a class="nav-link" href="source_list.php">Források</a>
-        </li>
+          <li class="nav-item">
+              <a class="nav-link" href="admin_list.php">Adminok</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="user_list.php">Felhasználók</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="article_list.php">Cikkek</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="source_list.php">Források</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="error_list.php">Hibák</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="modify_list.php">Módosítás</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="topic_list.php">Témakörök</a>
+          </li>
       </ul>
     </div>
   </nav>
@@ -59,17 +71,17 @@ include "../functions/query.php";
                 <form>
                   <div class="form-group">
                     <label>Cím</label>
-                    <input class="form-control form-control-lg" type="text" name="cim" placeholder="cim" />
+                    <input class="form-control form-control-lg" type="text" name="cim" placeholder="Cím" />
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Tartalom</label>
-                    <input class="form-control form-control-lg" type="text" name="tartalom" placeholder="tartalom" />
+                    <input class="form-control form-control-lg" type="text" name="tartalom" placeholder="Tartalom" />
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Létrehozási dátum</label>
-                    <input class="form-control form-control-lg" type="text" name="letrehozas_datum" placeholder="letrehozas datum" />
+                    <input class="form-control form-control-lg" type="text" name="letrehozas_datum" placeholder="Létrehozási dátum" />
                   </div>
                   <div class="text-center mt-3">
                     <br />

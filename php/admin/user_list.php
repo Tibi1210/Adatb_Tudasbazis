@@ -22,15 +22,30 @@ include "../functions/query.php";
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="admin_list.php">Adminok</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="user_list.php">Felhasználók</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="article_list.php">Cikkek</a>
-        </li>
+          <li class="nav-item">
+              <a class="nav-link" href="admin_list.php">Adminok</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="user_list.php">Felhasználók</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="article_list.php">Cikkek</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="source_list.php">Források</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="error_list.php">Hibák</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="modify_list.php">Módosítás</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="topic_list.php">Témakörök</a>
+          </li>
       </ul>
     </div>
   </nav>
@@ -56,7 +71,7 @@ include "../functions/query.php";
                 <form>
                   <div class="form-group">
                     <label>Felhasználónév</label>
-                    <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="felhasznalonev" />
+                    <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="Felhasználónév" />
                   </div>
                   <div class="form-group">
                     <br />
@@ -65,23 +80,23 @@ include "../functions/query.php";
                   </div>
                   <div class="form-group">
                     <br />
-                    <label>Email</label>
-                    <input class="form-control form-control-lg" type="email" name="email" placeholder="email cim" />
+                    <label>E-mail</label>
+                    <input class="form-control form-control-lg" type="email" name="email" placeholder="Email cím" />
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Jelszó</label>
-                    <input class="form-control form-control-lg" type="password" name="jelszo" placeholder="jelszo" />
+                    <input class="form-control form-control-lg" type="password" name="jelszo" placeholder="Jelszó" />
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Jelszó megerősítése</label>
-                    <input class="form-control form-control-lg" type="password" name="jelszo_ujra" placeholder="jelszo megerositese" />
+                    <input class="form-control form-control-lg" type="password" name="jelszo_ujra" placeholder="Jelszó megerősítése" />
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Születési dátum</label>
-                    <input class="form-control form-control-lg" type="text" name="szul_datum" placeholder="szuletesi datum" />
+                    <input class="form-control form-control-lg" type="text" name="szul_datum" placeholder="Születési dátum" />
                   </div>
                   <div class="text-center mt-3">
                     <br />

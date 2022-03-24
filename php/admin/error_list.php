@@ -37,6 +37,15 @@ include "../functions/query.php";
             <li class="nav-item">
                 <a class="nav-link" href="error_list.php">Hibák</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="modify_list.php">Módosítás</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="topic_list.php">Témakörök</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -66,11 +75,6 @@ include "../functions/query.php";
                                 </div>
                                 <div class="form-group">
                                     <br />
-                                    <label>Felhasználónév</label>
-                                    <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="Felhasználónév" />
-                                </div>
-                                <div class="form-group">
-                                    <br />
                                     <label>Hibajelentés</label>
                                     <input class="form-control form-control-lg" type="text" name="hibajelentes" placeholder="Hibajelentés" />
                                 </div>
@@ -78,6 +82,11 @@ include "../functions/query.php";
                                     <br />
                                     <label>Hibanév</label>
                                     <input class="form-control form-control-lg" type="text" name="hibanev" placeholder="Hibanév" />
+                                </div>
+                                <div class="form-group">
+                                    <br />
+                                    <label>Felhasználónév</label>
+                                    <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="Felhasználónév" />
                                 </div>
                                 <div class="text-center mt-3">
                                     <br />
