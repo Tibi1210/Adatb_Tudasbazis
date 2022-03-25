@@ -1,5 +1,16 @@
 <?php
 include "../functions/query.php";
+if (isset($_GET["cim"]) && isset($_GET["tartalom"])) {
+  $cim = strtolower($_GET["cim"]);
+  $tartalom = $_GET["tartalom"];
+  $vane = false;
+  $empty = false;
+} else {
+  $cim = "";
+  $tartalom = "";
+  $vane = true;
+  $empty = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,30 +33,30 @@ include "../functions/query.php";
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-          <li class="nav-item">
-              <a class="nav-link" href="admin_list.php">Adminok</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="user_list.php">Felhasználók</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="article_list.php">Cikkek</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="source_list.php">Források</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="error_list.php">Hibák</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="modify_list.php">Módosítás</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="topic_list.php">Témakörök</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="admin_list.php">Adminok</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user_list.php">Felhasználók</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="article_list.php">Cikkek</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="source_list.php">Források</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="error_list.php">Hibák</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="modify_list.php">Módosítás</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="topic_list.php">Témakörök</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -62,26 +73,21 @@ include "../functions/query.php";
 
   <div class="py-6 bg-light-primary">
     <div class="container">
-      <div class="row row-cols-lg- row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6 aos-init aos-animate" data-aos="fade-up">
+      <div class="row row-cols-lg- row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6">
         <div class="col my-3">
           <div class="card border-hover-primary hover-scale">
             <div class="card-body">
               <h4 class="font-weight-bold mb-3">Új cikk:</h4>
               <div class="m-sm-4">
-                <form>
+                <form action="article_list.php" method="get">
                   <div class="form-group">
                     <label>Cím</label>
-                    <input class="form-control form-control-lg" type="text" name="cim" placeholder="Cím" />
+                    <input class='form-control form-control-lg' type='text' name='cim' placeholder='Cím' />
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Tartalom</label>
-                      <textarea class="form-control form-control-lg"  name="tartalom" placeholder="Tartalom" ></textarea>
-                  </div>
-                  <div class="form-group">
-                    <br />
-                    <label>Létrehozási dátum</label>
-                    <input class="form-control form-control-lg" type="text" name="letrehozas_datum" placeholder="Létrehozási dátum" />
+                    <textarea class='form-control form-control-lg' maxlength="300" name='tartalom' placeholder='Tartalom'></textarea>
                   </div>
                   <div class="text-center mt-3">
                     <br />
@@ -90,19 +96,43 @@ include "../functions/query.php";
                     </button>
                   </div>
                 </form>
+                <?php
+                if (!$empty) {
+                  if ($cim != "" && $tartalom != "") {
+                    $s = query("SELECT CIM FROM CIKK WHERE cim='$cim'");
+                    while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                      foreach ($row as $item) {
+                        $vane = True;
+                      }
+                    }
+                    if ($vane) {
+                      echo "már van";
+                    } else {
+                      $s = query("INSERT INTO CIKK (CIM, TARTALOM, LETREHOZAS_DATUM) VALUES ('" . $cim . "', '" . (string) $tartalom . "', TO_DATE('" . date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H:i:s") . "', 'YYYY-MM-DD HH24:MI:SS'))");
+                    }
+                  } else {
+                    echo "üres";
+                  }
+                } else {
+                  echo "üres";
+                }
+                ?>
               </div>
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
         <div class="col my-3">
           <div class="card border-hover-primary hover-scale">
             <div class="card-body">
-              <h4 class="font-weight-bold mb-3">Cikkek:</h4>
               <div class="custyle">
+
                 <?php
 
-                $s = query("select * from CIKK");
-                
+                $s = query("SELECT * FROM CIKK ORDER BY LETREHOZAS_DATUM");
+
                 echo "<table class='table table-striped custab'>\n";
                 $ncols = oci_num_fields($s);
                 echo "<tr>\n";
@@ -124,12 +154,15 @@ include "../functions/query.php";
                 echo "</table>\n";
 
                 ?>
+
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+  </div>
   </div>
 
   <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">

@@ -84,7 +84,7 @@ include "../functions/query.php";
       <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6">
         <!-- Cards -->
         <?php
-        $s = query("select * from CIKK");
+        $s = query("SELECT * FROM CIKK ORDER BY CIM");
           while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
             foreach ($row as $item) {
               $cim = $item;
