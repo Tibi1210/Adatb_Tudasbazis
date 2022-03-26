@@ -127,8 +127,7 @@ SET
   DEFINE OFF;
 
 REM INSERTING into HOME.ADMIN
-SET
-    DEFINE OFF;
+SET DEFINE OFF;
 Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('varga__timi','MTA','PhD','Magyar nyelv és irodalom');
 Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('mesi_kurucz','SZTE TTIK','PhD','Matematika');
 Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('elekes_anna','SZTE TTIK','PhD','Természettudományok');
@@ -139,10 +138,8 @@ Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) v
 Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('eszterrr','MTA','PhD','Agrártudományok');
 Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('_galambos_norbi_','ELTE BTK','PhD','Filozófia');
 Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('-noncsi-','MTA','PhD','Nyelvészet');
-
 REM INSERTING into HOME.CIKK
-SET
-    DEFINE OFF;
+SET DEFINE OFF;
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Számítógép-tudomány','A számítógép-programozás egy vagy több absztrakt algoritmus megvalósítását jelenti egy bizonyos programozási nyelven. A programozásban megtaláljuk a mûvészet, a tudomány, a matematika és a mérnöki tudomány elemeit.',to_date('20-MÁRC. -05','RR-MON-DD'));
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Rendszerfejlesztés','A rendszerfejlesztést a programozás, szoftverfejlesztés egyik lépéseként kezeli. Eszköztárát a feladat nagyságától, céljától függõen használják fel a programozás során: szabványos modellezõ, rendszerfejlesztési módszertan, projektmenedzsment, alkalmazásfejlesztés stb. ',to_date('19-MÁRC. -16','RR-MON-DD'));
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Macska','A macska, más néven házi macska kiseb termetû húsevõ emlõs, amely a ragadozók rendjén belül a macskafélék családjának Felis neméhez és vadmacska fajához tartozik. A vadmacska alfaja.',to_date('20-JÚL.  -17','RR-MON-DD'));
@@ -156,7 +153,7 @@ Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Filozófia','A fil
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Büntetõjog','A büntetõjog a jog azon ága, amely meghatározza azokat a közösségellenes, nemkívánatos magatartásokat, amelyek tanúsítása, és jogellenességet kizáró tényezõk hiánya esetén az elkövetõt büntetõjogi felelõsségre vonják és amennyiben bûnös megbüntetik.',to_date('19-FEBR. -14','RR-MON-DD'));
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Bíróság','A bíróságok az igazságszolgáltatást gyakorló, más hatalmi ágaktól független, politikailag és világnézetileg semleges, önálló hatóságok.A bíróságok feladatait a bírók és egyéb bírósági alkalmazottak látják el.',to_date('15-AUG.  -04','RR-MON-DD'));
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Szociológia','A szociológia a társadalmi élet összetevõi, az egyének, csoportok, szervezetek, intézmények (család, iskola, egyház, állam stb.) életének, mûködésének törvényszerûségeit, szabályait és folyamatait vizsgáló elméleti és gyakorlati tudomány.',to_date('18-AUG.  -09','RR-MON-DD'));
-Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Karl Marx','Karl Marx (Trier, 1818. május 5. – London, 1883. március 14.) német filozófus, közgazdász, szociológus, a kommunista munkásmozgalom teoretikusa, egyben a marxizmus ihletõje; munkássága jelentõsen hozzájárult a társadalomtudomány fejlõdéséhez.',to_date('19-NOV.  -21','RR-MON-DD'));
+Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Karl Marx','Karl Marx (Trier, 1818. május 5. ? London, 1883. március 14.) német filozófus, közgazdász, szociológus, a kommunista munkásmozgalom teoretikusa, egyben a marxizmus ihletõje; munkássága jelentõsen hozzájárult a társadalomtudomány fejlõdéséhez.',to_date('19-NOV.  -21','RR-MON-DD'));
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Madarak','A madarak meszes héjú tojással szaporodó, melegvérû gerinces állatok. Mellsõ végtagjaik szárnyakká módosultak. Járólábaik vannak , melyeken megtalálható a csüd,amely elõsegíti a landolást. Szegycsontjuk tarajos, melyhez erõs mellizmok tapadnak, így segítve a repülést.',to_date('18-OKT.  -10','RR-MON-DD'));
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Állattenyésztés','Az állattenyésztés a mezõgazdaság egyik fõ területét képezõ gazdasági tevékenység. A hatályos magyar törvényi meghatározás szerint "Az állatok tenyész- és haszonértékét növelõ célirányos tevékenységek összessége.',to_date('20-SZEPT.-23','RR-MON-DD'));
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Sakktábla földterület','A sakktáblásodás olyan helyzetre utal, amikor a földtulajdon két vagy több tulajdonos között keveredik, ami sakktáblás mintázatot eredményez. Mivel a kiosztott földterületeket eltérõ módon és intenzitással mûvelik, a sakktábla-mintázat így a levegõbõl is látható.',to_date('21-MÁRC. -11','RR-MON-DD'));
@@ -173,10 +170,8 @@ Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Személyi jog','A 
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Téglalap','A téglalap egy olyan négyszög, amelynek minden szöge derékszög. Két-két szemközti oldala egyenlõ hosszúságú, ezért minden téglalap egyben paralelogramma is. A négyzet a téglalap egy speciális típusa, amelynek minden oldala egyenlõ. A téglalap belsõ szögeinek összege 360°.',to_date('22-JAN.  -13','RR-MON-DD'));
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Tulajdonnév','A tulajdonnév a fõnevek azon fajtája, amely egy konkrét egyedre utal, tehát azonosító funkciót tölt be. Fajtái: személynevek, állatnevek, tárgynevek, földrajzi nevek, intézménynevek, márkanevek... ',to_date('20-MÁRC. -04','RR-MON-DD'));
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM) values ('Petõfi Sándor','Petõfi Sándor (született Petrovics Sándor, Kiskõrös, 1823. január 1. - Fehéregyháza körül, 1849. július 31.) magyar költõ, forradalmár, nemzeti hõs, a magyar költészet egyik legismertebb és egyik legkiemelkedõbb alakja.',to_date('20-JÚL.  -14','RR-MON-DD'));
-
 REM INSERTING into HOME.FELHASZNALO
-SET
-    DEFINE OFF;
+SET DEFINE OFF;
 Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('kissferenc','n','kissferenc@gmail.com','nfhhz567e',to_date('72-MÁJ.  -19','RR-MON-DD'));
 Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('evi_nagy','y','evelinnagy@freemail.hu','56hzf78ki',to_date('92-MÁRC. -13','RR-MON-DD'));
 Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('f.imi','y','feketeimre65@gmail.com','j54dt789u',to_date('84-OKT.  -26','RR-MON-DD'));
@@ -227,10 +222,8 @@ Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) v
 Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('bence<*>','n','tothbence@freemail.hu','jsk5918hss',to_date('83-FEBR. -17','RR-MON-DD'));
 Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('_van_dus_','n','deakvanda@gmail.com','7q21tg35s',to_date('86-DEC.  -20','RR-MON-DD'));
 Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('pisti','n','pistihajdrik@gmail.com','ows7kwiw7',to_date('83-JAN.  -07','RR-MON-DD'));
-
 REM INSERTING into HOME.FORRAS
-SET
-    DEFINE OFF;
+SET DEFINE OFF;
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Számítógép-tudomány','https://hu.wikipedia.org/wiki/Számítógép-programozás',' ');
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Bíróság','https://hu.wikipedia.org/wiki/Magyarország_bíróságai',' ');
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Rendszerfejlesztés','https://hu.wikipedia.org/wiki/Számítógép-programozás',' ');
@@ -261,19 +254,15 @@ Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Személyi jog','https:
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Present Perfect','https://hu.wikipedia.org/wiki/Present_Perfect',' ');
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Téglalap','https://hu.wikipedia.org/wiki/Téglalap',' ');
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Filozófia','https://hu.wikipedia.org/wiki/A_filozófia_alapkérdése',' ');
-
 REM INSERTING into HOME.HIBA_BEJELENTES
-SET
-    DEFINE OFF;
+SET DEFINE OFF;
 Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Karl Marx','A születési és halálozási dátum között ? van.','elírás','_rudolf_');
 Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Téglalap','A 360 után a fokjel helyett ? van írva.','elírás',';)_sacika_');
 Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Alma','A többsége szó rosszul van írva.','helyesírási hiba','lali_nagy');
 Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Madarak','Az állatok szó rosszul van írva.','helyesírási hiba','*petruska*');
 Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Macska','A kisebb szó rosszul van írva.','helyesírási hiba','yvette');
-
 REM INSERTING into HOME.KULCSSZO
-SET
-    DEFINE OFF;
+SET DEFINE OFF;
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Bíróság','Jog',' ');
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Filozófia','Filozófia',' ');
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Nyelvészet','Nyelvészet',' ');
@@ -304,10 +293,8 @@ Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Kõolaj','Földrajz',' ')
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Személyi jog','Jog',' ');
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Present Perfect','Nyelvtan',' ');
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Téglalap','Négyszög',' ');
-
 REM INSERTING into HOME.MODOSITAS
-SET
-    DEFINE OFF;
+SET DEFINE OFF;
 Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Téglalap',to_date('22-FEBR. -10','RR-MON-DD'),'mesi_kurucz');
 Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Filozófia',to_date('20-MÁRC. -12','RR-MON-DD'),'_galambos_norbi_');
 Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Büntetõjog',to_date('20-JÚN.  -18','RR-MON-DD'),'marci79');
@@ -318,10 +305,8 @@ Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Állattenyésztés',
 Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Négyzet',to_date('21-AUG.  -13','RR-MON-DD'),'mesi_kurucz');
 Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Himnusz',to_date('21-DEC.  -09','RR-MON-DD'),'varga__timi');
 Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('C nyelv',to_date('21-SZEPT.-22','RR-MON-DD'),'g_jani__72');
-
 REM INSERTING into HOME.TEMAKOR
-SET
-    DEFINE OFF;
+SET DEFINE OFF;
 Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR,TARTALOM) values ('Bíróság','Jog','Bíróság',' ');
 Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR,TARTALOM) values ('Filozófia','Filozófia','Fogalom',' ');
 Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR,TARTALOM) values ('Nyelvészet','Nyelvészet','Fogalom',' ');
