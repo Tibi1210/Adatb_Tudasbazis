@@ -1,8 +1,8 @@
 <?php
-include "../functions/query.php";
+include "../functions/functions.php";
 
 if (isset($_GET["src_GET"])) {
-  $search = strtolower($_GET["src_GET"]);
+  $search = $_GET["src_GET"];
 } else {
   $search = "";
 }

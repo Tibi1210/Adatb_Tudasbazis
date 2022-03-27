@@ -1,5 +1,5 @@
 <?php
-include "../functions/query.php";
+include "../functions/functions.php";
 ?>
 
 

@@ -1,7 +1,7 @@
 <?php
 include "../functions/functions.php";
 if (isset($_GET["cim"]) && isset($_GET["tartalom"])) {
-  $cim = strtolower($_GET["cim"]);
+  $cim = $_GET["cim"];
   $tartalom = $_GET["tartalom"];
   $vane = false;
   $empty = false;
