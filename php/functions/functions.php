@@ -24,3 +24,26 @@ function query($asd)
   }
   return $s;
 }
+
+function table($s)
+{
+  echo "<table class='table table-striped custab'>\n";
+  $ncols = oci_num_fields($s);
+  echo "<tr>\n";
+  for ($i = 1; $i <= $ncols; ++$i) {
+    $colname = oci_field_name($s, $i);
+    echo "  <th><b>" . $colname . "</b></th>\n";
+  }
+  echo "</tr>\n";
+
+  while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+    echo "<tr>\n";
+    foreach ($row as $item) {
+      echo "<td>";
+      echo $item !== null ? $item : "&nbsp;";
+      echo "</td>\n";
+    }
+    echo "</tr>\n";
+  }
+  echo "</table>\n";
+}

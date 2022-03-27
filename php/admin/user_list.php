@@ -1,5 +1,5 @@
 <?php
-include "../functions/query.php";
+include "../functions/functions.php";
 ?>
 
 <!DOCTYPE html>
@@ -22,30 +22,30 @@ include "../functions/query.php";
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
-          <li class="nav-item">
-              <a class="nav-link" href="admin_list.php">Adminok</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="user_list.php">Felhasználók</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="article_list.php">Cikkek</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="source_list.php">Források</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="error_list.php">Hibák</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="modify_list.php">Módosítás</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="topic_list.php">Témakörök</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="admin_list.php">Adminok</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="user_list.php">Felhasználók</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="article_list.php">Cikkek</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="source_list.php">Források</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="error_list.php">Hibák</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="modify_list.php">Módosítás</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="topic_list.php">Témakörök</a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -109,34 +109,14 @@ include "../functions/query.php";
             </div>
           </div>
         </div>
+      </div>
+      <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
         <div class="col my-3">
           <div class="card border-hover-primary hover-scale">
             <div class="card-body">
-              <h4 class="font-weight-bold mb-3">Felhasználók:</h4>
               <div class="custyle">
                 <?php
-
-                $s = query("select * from FELHASZNALO");
-
-                echo "<table class='table table-striped custab'>\n";
-                $ncols = oci_num_fields($s);
-                echo "<tr>\n";
-                for ($i = 1; $i <= $ncols; ++$i) {
-                  $colname = oci_field_name($s, $i);
-                  echo "  <th><b>" .$colname . "</b></th>\n";
-                }
-                echo "</tr>\n";
-
-                while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
-                  echo "<tr>\n";
-                  foreach ($row as $item) {
-                    echo "<td>";
-                    echo $item !== null ? $item : "&nbsp;";
-                    echo "</td>\n";
-                  }
-                  echo "</tr>\n";
-                }
-                echo "</table>\n";
+                table(query("SELECT * FROM FELHASZNALO ORDER BY FELHASZNALONEV"));
                 ?>
               </div>
             </div>
