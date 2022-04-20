@@ -106,15 +106,18 @@ if (isset($_GET["cim"]) && isset($_GET["tartalom"])) {
                       }
                     }
                     if ($vane) {
-                      echo "már van";
+                      echo "<br>";
+                      echo "<p>Már létezik ilyen cikk!<p>";
                     } else {
-                      $s = query("INSERT INTO CIKK (CIM, TARTALOM, LETREHOZAS_DATUM) VALUES ('" . $cim . "', '" . (string) $tartalom . "', TO_DATE('" . date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H:i:s") . "', 'YYYY-MM-DD HH24:MI:SS'))");
+                      $s = query("INSERT INTO CIKK (CIM, TARTALOM, LETREHOZAS_DATUM, SZERZO) VALUES ('" . $cim . "', '" . (string) $tartalom . "', TO_DATE('" . date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H:i:s") . "', 'YYYY-MM-DD HH24:MI:SS'), 'marci79')");
                     }
                   } else {
-                    echo "üres";
+                    echo "<br>";
+                    echo "<p>Üres beviteli mező!<p>";
                   }
                 } else {
-                  echo "üres";
+                  echo "<br>";
+                  echo "<p>Üres beviteli mező!<p>";
                 }
                 ?>
               </div>

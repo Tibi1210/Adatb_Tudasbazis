@@ -1,5 +1,24 @@
 <?php
 include "../functions/functions.php";
+if (isset($_GET["felhasznalonev"]) && isset($_GET["szerzo_e"]) && isset($_GET["email"]) && isset($_GET["jelszo"]) && isset($_GET["jelszo_ujra"]) && isset($_GET["szul_datum"])) {
+  $nev = $_GET["felhasznalonev"];
+  $szerzo = $_GET["szerzo_e"];
+  $email = $_GET["email"];
+  $jelszo = $_GET["jelszo"];
+  $jelszo2 = $_GET["jelszo_ujra"];
+  $szuldatum = $_GET["szul_datum"];
+  $vane = false;
+  $empty = false;
+} else {
+  $nev = "";
+  $szerzo = "";
+  $email = "";
+  $jelszo = "";
+  $jelszo2 = "";
+  $szuldatum = "";
+  $vane = true;
+  $empty = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +115,7 @@ include "../functions/functions.php";
                   <div class="form-group">
                     <br />
                     <label>Születési dátum</label>
-                    <input class="form-control form-control-lg" type="text" name="szul_datum" placeholder="Születési dátum" />
+                    <input class="form-control form-control-lg" type="date" name="szul_datum" placeholder="Születési dátum" />
                   </div>
                   <div class="text-center mt-3">
                     <br />
@@ -105,6 +124,41 @@ include "../functions/functions.php";
                     </button>
                   </div>
                 </form>
+                <?php
+                if (!$empty) {
+                  if ($nev != "" && $szerzo != "" && $email != "" && $jelszo != "" && $jelszo2 != "" && $szuldatum != "") {
+                    $s = query("SELECT FELHASZNALONEV FROM FELHASZNALO WHERE FELHASZNALONEV='$nev'");
+                    while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                      foreach ($row as $item) {
+                        $vane = True;
+                      }
+                    }
+                    $s = query("SELECT EMAIL FROM FELHASZNALO WHERE EMAIL='$email'");
+                    while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                      foreach ($row as $item) {
+                        $vane = True;
+                      }
+                    }
+                    if ($vane) {
+                      echo "<br>";
+                      echo "<p>Már létezik ilyen nevű/email című felhasználó!<p>";
+                    } else {
+                      if ($jelszo != $jelszo2){
+                        echo "<br>";
+                        echo "<p>Jelszó nem eggyezik!<p>";
+                      }else{
+                        $s = query("INSERT INTO FELHASZNALO (FELHASZNALONEV, SZERZO_E, EMAIL, JELSZO, SZUL_DATUM) VALUES ('" . $nev . "', '" . $szerzo . "', '" . $email . "', '" . $jelszo . "',TO_DATE('$szuldatum', 'YYYY-MM-DD') )");
+                      }
+                    }
+                  } else {
+                    echo "<br>";
+                    echo "<p>Üres beviteli mező!<p>";
+                  }
+                } else {
+                  echo "<br>";
+                  echo "<p>Üres beviteli mező!<p>";
+                }
+                ?>
               </div>
             </div>
           </div>
