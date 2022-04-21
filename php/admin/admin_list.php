@@ -1,5 +1,8 @@
 <?php
 include "../functions/functions.php";
+if (isset($_GET["deletebtn"])) {
+  query("DELETE FROM admin WHERE felhasznalonev='" . $_GET["deletebtn"] . "'");
+}
 ?>
 
 <!DOCTYPE html>
