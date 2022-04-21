@@ -19,6 +19,10 @@ if (isset($_GET["felhasznalonev"]) && isset($_GET["szerzo_e"]) && isset($_GET["e
   $vane = true;
   $empty = true;
 }
+if(isset($_GET["deletebtn"])){
+  query("DELETE FROM FELHASZNALO WHERE FELHASZNALONEV='".$_GET["deletebtn"]."'");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +91,7 @@ if (isset($_GET["felhasznalonev"]) && isset($_GET["szerzo_e"]) && isset($_GET["e
             <div class="card-body">
               <h4 class="font-weight-bold mb-3">Új felhasználó:</h4>
               <div class="m-sm-4">
-                <form>
+                <form action="user_list.php" method="get">
                   <div class="form-group">
                     <label>Felhasználónév</label>
                     <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="Felhasználónév" />

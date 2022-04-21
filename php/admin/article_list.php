@@ -3,13 +3,23 @@ include "../functions/functions.php";
 if (isset($_GET["cim"]) && isset($_GET["tartalom"])) {
   $cim = $_GET["cim"];
   $tartalom = $_GET["tartalom"];
-  $vane = false;
   $empty = false;
 } else {
   $cim = "";
   $tartalom = "";
-  $vane = true;
   $empty = true;
+}
+if (isset($_GET["deletebtn"])) {
+  query("DELETE FROM CIKK WHERE CIM='" . $_GET["deletebtn"] . "'");
+}
+$vaneupdate = false;
+$vane = false;
+if (isset($_GET["updatebtn"])) {
+  $update = query("SELECT CIM,TARTALOM FROM CIKK WHERE cim='" . $_GET["updatebtn"] . "'");
+  $updaterow = oci_fetch_array($update, OCI_ASSOC + OCI_RETURN_NULLS);
+  $updval = $_GET["updatebtn"];
+  $vaneupdate = true;
+  $vane = false;
 }
 ?>
 
@@ -82,18 +92,35 @@ if (isset($_GET["cim"]) && isset($_GET["tartalom"])) {
                 <form action="article_list.php" method="get">
                   <div class="form-group">
                     <label>Cím</label>
-                    <input class='form-control form-control-lg' type='text' name='cim' placeholder='Cím' />
+                    <?php
+                    if (isset($_GET["updatebtn"])) {
+                      echo "<input class='form-control form-control-lg' type='text' name='cim' value='" . $updaterow["CIM"] . "' placeholder='Cím' />";
+                    } else {
+                      echo "<input class='form-control form-control-lg' type='text' name='cim' placeholder='Cím' />";
+                    }
+                    ?>
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Tartalom</label>
-                    <textarea class='form-control form-control-lg' maxlength="300" name='tartalom' placeholder='Tartalom'></textarea>
+                    <?php
+                    if (isset($_GET["updatebtn"])) {
+                      echo "<textarea class='form-control form-control-lg' maxlength='300' name='tartalom' placeholder='Tartalom'>" . $updaterow["TARTALOM"] . "</textarea>";
+                    } else {
+                      echo "<textarea class='form-control form-control-lg' maxlength='300' name='tartalom' placeholder='Tartalom'></textarea>";
+                    }
+                    ?>
                   </div>
                   <div class="text-center mt-3">
                     <br />
-                    <button type="submit" class="btn btn-lg btn-primary" id="btn_src">
-                      Létrehozás
-                    </button>
+                    <?php
+                    if (isset($_GET["updatebtn"])) {
+                      echo '<button type="submit" class="btn btn-lg btn-primary" name="updatebtnfinal" value="' . $updval . '" id="btn_src">Frissítés</button>';
+                    } else {
+                      echo '<button type="submit" class="btn btn-lg btn-primary" id="btn_src">Létrehozás</button>';
+                    }
+                    ?>
+
                   </div>
                 </form>
                 <?php
@@ -102,14 +129,28 @@ if (isset($_GET["cim"]) && isset($_GET["tartalom"])) {
                     $s = query("SELECT CIM FROM CIKK WHERE cim='$cim'");
                     while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
                       foreach ($row as $item) {
-                        $vane = True;
+                        if(!isset($_GET["updatebtnfinal"])){
+                          $vane = true;
+                        }else{
+                          $s = query("SELECT CIM FROM CIKK WHERE cim='".$_GET["updatebtnfinal"]."'");
+                          $vane=false;
+                          while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                            foreach ($row as $item) {
+                              $vane = true;
+                            }
+                          }
+                        }
                       }
                     }
                     if ($vane) {
                       echo "<br>";
                       echo "<p>Már létezik ilyen cikk!<p>";
                     } else {
-                      $s = query("INSERT INTO CIKK (CIM, TARTALOM, LETREHOZAS_DATUM, SZERZO) VALUES ('" . $cim . "', '" . (string) $tartalom . "', TO_DATE('" . date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H:i:s") . "', 'YYYY-MM-DD HH24:MI:SS'), 'marci79')");
+                      if(isset($_GET["updatebtnfinal"])){
+                        query("UPDATE CIKK SET CIM='$cim',TARTALOM='$tartalom' WHERE CIM='".$_GET["updatebtnfinal"]."'");
+                      }else{
+                        query("INSERT INTO CIKK (CIM, TARTALOM, LETREHOZAS_DATUM, SZERZO) VALUES ('" . $cim . "', '" . (string) $tartalom . "', TO_DATE('" . date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H:i:s") . "', 'YYYY-MM-DD HH24:MI:SS'), 'marci79')");
+                      }
                     }
                   } else {
                     echo "<br>";
