@@ -7,7 +7,6 @@ if (isset($_GET["felhasznalonev"]) && isset($_GET["szerzo_e"]) && isset($_GET["e
   $jelszo = $_GET["jelszo"];
   $jelszo2 = $_GET["jelszo_ujra"];
   $szuldatum = $_GET["szul_datum"];
-  $vane = false;
   $empty = false;
 } else {
   $nev = "";
@@ -16,11 +15,20 @@ if (isset($_GET["felhasznalonev"]) && isset($_GET["szerzo_e"]) && isset($_GET["e
   $jelszo = "";
   $jelszo2 = "";
   $szuldatum = "";
-  $vane = true;
   $empty = true;
 }
-if(isset($_GET["deletebtn"])){
-  query("DELETE FROM FELHASZNALO WHERE FELHASZNALONEV='".$_GET["deletebtn"]."'");
+if (isset($_GET["deletebtn"])) {
+  query("DELETE FROM FELHASZNALO WHERE FELHASZNALONEV='" . $_GET["deletebtn"] . "'");
+}
+
+$vaneupdate = false;
+$vane = false;
+if (isset($_GET["updatebtn"])) {
+  $update = query("SELECT * FROM FELHASZNALO WHERE FELHASZNALONEV='" . $_GET["updatebtn"] . "'");
+  $updaterow = oci_fetch_array($update, OCI_ASSOC + OCI_RETURN_NULLS);
+  $updval = $_GET["updatebtn"];
+  $vaneupdate = true;
+  $vane = false;
 }
 
 ?>
@@ -94,12 +102,28 @@ if(isset($_GET["deletebtn"])){
                 <form action="user_list.php" method="get">
                   <div class="form-group">
                     <label>Felhasználónév</label>
-                    <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="Felhasználónév" />
+                    <?php
+                    if (isset($_GET["updatebtn"])) {
+                      echo "<input class='form-control form-control-lg' type='text' name='felhasznalonev' value='" . $updaterow["FELHASZNALONEV"] . "' placeholder='Felhasználónév' />";
+                    } else {
+                      echo "<input class='form-control form-control-lg' type='text' name='felhasznalonev' placeholder='Felhasználónév' />";
+                    }
+                    ?>
                   </div>
                   <div class="form-group">
                     <br />
                     <label>Szerző</label>
-                    <input class="form-control form-control-lg" type="text" name="szerzo_e" placeholder="y/n" />
+                    <!--Ezeket kicserélni-->
+                    <!--<input class="form-control form-control-lg" type="text" name="szerzo_e" placeholder="y/n" />-->
+                    <!--Ezekre-->
+                    <?php
+                    if (isset($_GET["updatebtn"])) {
+                      echo "<input class='form-control form-control-lg' type='text' name='szerzo_e' value='" . $updaterow["SZERZO_E"] . "' placeholder='y/n' />";
+                    } else {
+                      echo "<input class='form-control form-control-lg' type='text' name='szerzo_e' placeholder='y/n' />";
+                    }
+                    ?>
+                    <!--Ezekre-->
                   </div>
                   <div class="form-group">
                     <br />
@@ -123,9 +147,13 @@ if(isset($_GET["deletebtn"])){
                   </div>
                   <div class="text-center mt-3">
                     <br />
-                    <button type="submit" class="btn btn-lg btn-primary" id="btn_src">
-                      Létrehozás
-                    </button>
+                    <?php
+                    if (isset($_GET["updatebtn"])) {
+                      echo '<button type="submit" class="btn btn-lg btn-primary" name="updatebtnfinal" value="' . $updval . '" id="btn_src">Frissítés</button>';
+                    } else {
+                      echo '<button type="submit" class="btn btn-lg btn-primary" id="btn_src">Létrehozás</button>';
+                    }
+                    ?>
                   </div>
                 </form>
                 <?php
@@ -147,10 +175,10 @@ if(isset($_GET["deletebtn"])){
                       echo "<br>";
                       echo "<p>Már létezik ilyen nevű/email című felhasználó!<p>";
                     } else {
-                      if ($jelszo != $jelszo2){
+                      if ($jelszo != $jelszo2) {
                         echo "<br>";
                         echo "<p>Jelszó nem eggyezik!<p>";
-                      }else{
+                      } else {
                         $s = query("INSERT INTO FELHASZNALO (FELHASZNALONEV, SZERZO_E, EMAIL, JELSZO, SZUL_DATUM) VALUES ('" . $nev . "', '" . $szerzo . "', '" . $email . "', '" . $jelszo . "',TO_DATE('$szuldatum', 'YYYY-MM-DD') )");
                       }
                     }

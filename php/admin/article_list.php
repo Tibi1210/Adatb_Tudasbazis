@@ -12,6 +12,8 @@ if (isset($_GET["cim"]) && isset($_GET["tartalom"])) {
 if (isset($_GET["deletebtn"])) {
   query("DELETE FROM CIKK WHERE CIM='" . $_GET["deletebtn"] . "'");
 }
+
+
 $vaneupdate = false;
 $vane = false;
 if (isset($_GET["updatebtn"])) {
