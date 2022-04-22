@@ -1,8 +1,31 @@
 <?php
 include "../functions/functions.php";
+if (isset($_GET["cim"]) && isset($_GET["hibajelentes"])&& isset($_GET["hibanev"])&& isset($_GET["felhasznalonev"])) {
+    $cim = $_GET["cim"];
+    $hibajelentes= $_GET["hibajelentes"];
+    $hibanev = $_GET["hibanev"];
+    $felhasznalonev = $_GET["felhasznalonev"];
+    $empty = false;
+} else {
+    $cim = "";
+    $hibajelentes= "";
+    $hibanev = "";
+    $felhasznalonev = "";
+    $empty = true;
+}
 if (isset($_GET["deletebtn"])) {
     query("DELETE FROM HIBA_BEJELENTES WHERE CIM='" . $_GET["deletebtn"] . "'");
   }
+
+$vaneupdate = false;
+$vane = false;
+if (isset($_GET["updatebtn"])) {
+    $update = query("SELECT * FROM HIBA_BEJELENTES WHERE cim='" . $_GET["updatebtn"] . "'");
+    $updaterow = oci_fetch_array($update, OCI_ASSOC + OCI_RETURN_NULLS);
+    $updval = $_GET["updatebtn"];
+    $vaneupdate = true;
+    $vane = false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +42,7 @@ if (isset($_GET["deletebtn"])) {
 <body>
     <!-- A top navigációs menü. -->
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-        <span class="navbar-text p-2 text-white">Menü</span>
+        <span class="navbar-text p-2 ">Menü</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,7 +61,7 @@ if (isset($_GET["deletebtn"])) {
                     <a class="nav-link" href="source_list.php">Források</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="error_list.php">Hibák</a>
+                    <a class="nav-link text-white" href="error_list.php">Hibák</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
@@ -74,30 +97,95 @@ if (isset($_GET["deletebtn"])) {
                                 <form>
                                     <div class="form-group">
                                         <label>Cím</label>
-                                        <input class="form-control form-control-lg" type="text" name="cim" placeholder="Cím" />
+                                        <?php
+                                        if (isset($_GET["updatebtn"])) {
+                                            echo "<input class='form-control form-control-lg' type='text' name='cim' value='" . $updaterow["CIM"] . "' placeholder='Cím' />";
+                                        } else {
+                                            echo "<input class='form-control form-control-lg' type='text' name='cim' placeholder='Cím' />";
+                                        }
+                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <br />
                                         <label>Hibajelentés</label>
-                                        <input class="form-control form-control-lg" type="text" name="hibajelentes" placeholder="Hibajelentés" />
+                                        <?php
+                                        if (isset($_GET["updatebtn"])) {
+                                            echo "<input class='form-control form-control-lg' type='text' name='hibajelentes' value='" . $updaterow["HIBAJELENTES"] . "' placeholder='Hibajelentés' />";
+                                        } else {
+                                            echo "<input class='form-control form-control-lg' type='text' name='hibajelentes' placeholder='Hibajelentés' />";
+                                        }
+                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <br />
                                         <label>Hibanév</label>
-                                        <input class="form-control form-control-lg" type="text" name="hibanev" placeholder="Hibanév" />
+                                        <?php
+                                        if (isset($_GET["updatebtn"])) {
+                                            echo "<input class='form-control form-control-lg' type='text' name='hibanev' value='" . $updaterow["HIBANEV"] . "' placeholder='Hibanév' />";
+                                        } else {
+                                            echo "<input class='form-control form-control-lg' type='text' name='hibanev' placeholder='Hibanév' />";
+                                        }
+                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <br />
                                         <label>Felhasználónév</label>
-                                        <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="Felhasználónév" />
+                                        <?php
+                                        if (isset($_GET["updatebtn"])) {
+                                            echo "<input class='form-control form-control-lg' type='text' name='felhasznalonev' value='" . $updaterow["FELHASZNALONEV"] . "' placeholder='Felhasználónév' />";
+                                        } else {
+                                            echo "<input class='form-control form-control-lg' type='text' name='felhasznalonev' placeholder='Felhasználónév' />";
+                                        }
+                                        ?>
                                     </div>
                                     <div class="text-center mt-3">
                                         <br />
-                                        <button type="submit" class="btn btn-lg btn-primary" id="btn_src">
-                                            Létrehozás
-                                        </button>
+                                        <?php
+                                        if (isset($_GET["updatebtn"])) {
+                                            echo '<button type="submit" class="btn btn-lg btn-primary" name="updatebtnfinal" value="' . $updval . '" id="btn_src">Frissítés</button>';
+                                        } else {
+                                            echo '<button type="submit" class="btn btn-lg btn-primary" id="btn_src">Létrehozás</button>';
+                                        }
+                                        ?>
                                     </div>
                                 </form>
+                                <?php
+                                if (!$empty) {
+                                    if ($cim != ""  && $hibajelentes != "" && $hibanev != "" && $felhasznalonev != "") {
+                                        $s = query("SELECT CIM FROM HIBA_BEJELENTES WHERE cim='$cim'");
+                                        while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                                            foreach ($row as $item) {
+                                                if (!isset($_GET["updatebtnfinal"])) {
+                                                    $vane = true;
+                                                } else {
+                                                    if ($cim != $_GET["updatebtnfinal"]) {
+                                                        $s = query("SELECT CIM FROM HIBA_BEJELENTES WHERE cim='" . $_GET["updatebtnfinal"] . "'");
+                                                        $vane = false;
+                                                        while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                                                            foreach ($row as $item) {
+                                                                $vane = true;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if ($vane) {
+                                            echo "<br>";
+                                            echo "<p>Már létezik ilyen hiba!<p>";
+                                        } else {
+                                            if (isset($_GET["updatebtnfinal"])) {
+                                                query("UPDATE HIBA_BEJELENTES SET CIM='$cim',HIBAJELENTES='$hibajelentes',HIBANEV='$hibanev',FELHASZNALONEV='$felhasznalonev' WHERE CIM='" . $_GET["updatebtnfinal"] . "'");
+                                            } else {
+                                                query("INSERT INTO HIBA_BEJELENTES (CIM, HIBAJELENTES, HIBANEV, FELHASZNALONEV) VALUES ('" . $cim . "', '" . $hibajelentes . "', '" . $hibanev . "', '" . $felhasznalonev . "')");
+                                            }
+                                        }
+                                    } else {
+                                        echo "<br>";
+                                        echo "<p>Üres beviteli mező!<p>";
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>

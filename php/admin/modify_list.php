@@ -19,7 +19,7 @@ if (isset($_GET["deletebtn"])) {
 <body>
     <!-- A top navigációs menü. -->
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-        <span class="navbar-text p-2 text-white">Menü</span>
+        <span class="navbar-text p-2 ">Menü</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -44,7 +44,7 @@ if (isset($_GET["deletebtn"])) {
                     <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="modify_list.php">Módosítás</a>
+                    <a class="nav-link text-white" href="modify_list.php">Módosítás</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="topic_list.php">Témakörök</a>

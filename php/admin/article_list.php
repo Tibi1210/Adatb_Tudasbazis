@@ -40,7 +40,7 @@ if (isset($_GET["updatebtn"])) {
 <body>
 <!-- A top navigációs menü. -->
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-    <span class="navbar-text p-2 text-white">Menü</span>
+    <span class="navbar-text p-2 ">Menü</span>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -53,7 +53,7 @@ if (isset($_GET["updatebtn"])) {
                 <a class="nav-link" href="user_list.php">Felhasználók</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="article_list.php">Cikkek</a>
+                <a class="nav-link text-white" href="article_list.php">Cikkek</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="source_list.php">Források</a>
@@ -135,7 +135,7 @@ if (isset($_GET["updatebtn"])) {
                                             if (!isset($_GET["updatebtnfinal"])) {
                                                 $vane = true;
                                             } else {
-                                                if($cim != $_GET["updatebtnfinal"]){
+                                                if ($cim != $_GET["updatebtnfinal"]) {
                                                     $s = query("SELECT CIM FROM CIKK WHERE cim='" . $_GET["updatebtnfinal"] . "'");
                                                     $vane = false;
                                                     while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {

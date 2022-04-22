@@ -1,8 +1,29 @@
 <?php
 include "../functions/functions.php";
+if (isset($_GET["cim"]) && isset($_GET["nev"])&& isset($_GET["altemakor"])) {
+    $cim = $_GET["cim"];
+    $nev = $_GET["nev"];
+    $altemakor = $_GET["altemakor"];
+    $empty = false;
+} else {
+    $cim = "";
+    $nev = "";
+    $altemakor = "";
+    $empty = true;
+}
 if (isset($_GET["deletebtn"])) {
     query("DELETE FROM TEMAKOR WHERE CIM='" . $_GET["deletebtn"] . "'");
   }
+
+$vaneupdate = false;
+$vane = false;
+if (isset($_GET["updatebtn"])) {
+    $update = query("SELECT * FROM TEMAKOR WHERE cim='" . $_GET["updatebtn"] . "'");
+    $updaterow = oci_fetch_array($update, OCI_ASSOC + OCI_RETURN_NULLS);
+    $updval = $_GET["updatebtn"];
+    $vaneupdate = true;
+    $vane = false;
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +40,7 @@ if (isset($_GET["deletebtn"])) {
 <body>
     <!-- A top navigációs menü. -->
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-        <span class="navbar-text p-2 text-white">Menü</span>
+        <span class="navbar-text p-2 ">Menü</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,7 +68,7 @@ if (isset($_GET["deletebtn"])) {
                     <a class="nav-link" href="modify_list.php">Módosítás</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="topic_list.php">Témakörök</a>
+                    <a class="nav-link text-white" href="topic_list.php">Témakörök</a>
                 </li>
             </ul>
         </div>
@@ -74,30 +95,84 @@ if (isset($_GET["deletebtn"])) {
                                 <form>
                                     <div class="form-group">
                                         <label>Cím</label>
-                                        <input class="form-control form-control-lg" type="text" name="cim" placeholder="Cím" />
+                                        <?php
+                                        if (isset($_GET["updatebtn"])) {
+                                            echo "<input class='form-control form-control-lg' type='text' name='cim' value='" . $updaterow["CIM"] . "' placeholder='Cím' />";
+                                        } else {
+                                            echo "<input class='form-control form-control-lg' type='text' name='cim' placeholder='Cím' />";
+                                        }
+                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <br />
                                         <label>Név</label>
-                                        <input class="form-control form-control-lg" type="text" name="nev" placeholder="Név" />
+                                        <?php
+                                        if (isset($_GET["updatebtn"])) {
+                                            echo "<input class='form-control form-control-lg' type='text' name='nev' value='" . $updaterow["NEV"] . "' placeholder='Név' />";
+                                        } else {
+                                            echo "<input class='form-control form-control-lg' type='text' name='nev' placeholder='Név' />";
+                                        }
+                                        ?>
                                     </div>
                                     <div class="form-group">
                                         <br />
                                         <label>Altémakör</label>
-                                        <input class="form-control form-control-lg" type="text" name="altemakor" placeholder="Altémakör" />
-                                    </div>
-                                    <div class="form-group">
-                                        <br />
-                                        <label>Tartalom</label>
-                                        <input class="form-control form-control-lg" type="text" name="tartalom" placeholder="Tartalom" />
+                                        <?php
+                                        if (isset($_GET["updatebtn"])) {
+                                            echo "<input class='form-control form-control-lg' type='text' name='altemakor' value='" . $updaterow["ALTEMAKOR"] . "' placeholder='Altémakör' />";
+                                        } else {
+                                            echo "<input class='form-control form-control-lg' type='text' name='altemakor' placeholder='Altémakör' />";
+                                        }
+                                        ?>
                                     </div>
                                     <div class="text-center mt-3">
                                         <br />
-                                        <button type="submit" class="btn btn-lg btn-primary" id="btn_src">
-                                            Létrehozás
-                                        </button>
+                                        <?php
+                                        if (isset($_GET["updatebtn"])) {
+                                            echo '<button type="submit" class="btn btn-lg btn-primary" name="updatebtnfinal" value="' . $updval . '" id="btn_src">Frissítés</button>';
+                                        } else {
+                                            echo '<button type="submit" class="btn btn-lg btn-primary" id="btn_src">Létrehozás</button>';
+                                        }
+                                        ?>
                                     </div>
                                 </form>
+                                <?php
+                                if (!$empty) {
+                                    if ($cim != "" && $nev != ""  && $altemakor != "") {
+                                        $s = query("SELECT CIM FROM TEMAKOR WHERE cim='$cim'");
+                                        while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                                            foreach ($row as $item) {
+                                                if (!isset($_GET["updatebtnfinal"])) {
+                                                    $vane = true;
+                                                } else {
+                                                    if ($cim != $_GET["updatebtnfinal"]) {
+                                                        $s = query("SELECT CIM FROM TEMAKOR WHERE cim='" . $_GET["updatebtnfinal"] . "'");
+                                                        $vane = false;
+                                                        while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+                                                            foreach ($row as $item) {
+                                                                $vane = true;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if ($vane) {
+                                            echo "<br>";
+                                            echo "<p>Már létezik ilyen témakör!<p>";
+                                        } else {
+                                            if (isset($_GET["updatebtnfinal"])) {
+                                                query("UPDATE TEMAKOR SET CIM='$cim',NEV='$nev',ALTEMAKOR='$altemakor' WHERE CIM='" . $_GET["updatebtnfinal"] . "'");
+                                            } else {
+                                                query("INSERT INTO TEMAKOR (CIM, NEV, ALTEMAKOR) VALUES ('" . $cim . "', '" . $nev . "','" . $altemakor . "')");
+                                            }
+                                        }
+                                    } else {
+                                        echo "<br>";
+                                        echo "<p>Üres beviteli mező!<p>";
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
