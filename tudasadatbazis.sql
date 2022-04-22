@@ -572,3 +572,14 @@ Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Szemelyi jog','Jog','Szeme
 
   ALTER TABLE "HOME"."TEMAKOR" ADD CONSTRAINT "TEMAKOR_FK1" FOREIGN KEY ("CIM")
 	  REFERENCES "HOME"."CIKK" ("CIM") ENABLE;
+	  
+--------------------------------------------------------
+--  TRIGGERS
+--------------------------------------------------------
+
+CREATE OR REPLACE TRIGGER cikk_modositas
+AFTER UPDATE OF tartalom ON Cikk
+FOR EACH ROW
+BEGIN
+INSERT INTO Modositas VALUES(:OLD.cim, sysdate, :OLD.szerzo);
+END;
