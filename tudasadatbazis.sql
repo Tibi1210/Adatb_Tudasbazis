@@ -1,6 +1,11 @@
 --------------------------------------------------------
---  File created - Thursday-April-21-2022   
+--  File created - Thursday-April-28-2022   
 --------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Sequence HIBA_BEJELENTES_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "HOME"."HIBA_BEJELENTES_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 6 CACHE 20 NOORDER  NOCYCLE   ;
 --------------------------------------------------------
 --  DDL for Table ADMIN
 --------------------------------------------------------
@@ -70,7 +75,8 @@
 --------------------------------------------------------
 
   CREATE TABLE "HOME"."HIBA_BEJELENTES" 
-   (	"CIM" VARCHAR2(40 BYTE), 
+   (	"ID" NUMBER, 
+	"CIM" VARCHAR2(40 BYTE), 
 	"HIBAJELENTES" VARCHAR2(100 BYTE), 
 	"HIBANEV" VARCHAR2(20 BYTE), 
 	"FELHASZNALONEV" VARCHAR2(40 BYTE)
@@ -138,10 +144,11 @@ Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) v
 Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('eszterrr','MTA','PhD','Agrartudomanyok');
 Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('_galambos_norbi_','ELTE BTK','PhD','Filozofia');
 Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('-noncsi-','MTA','PhD','Nyelveszet');
+Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) values ('admin','nincs','nincs','nincs');
 REM INSERTING into HOME.CIKK
 SET DEFINE OFF;
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Alma','Az alma vagy almafa a rozsafelek csaladjaba tartozo novenynemzetseg. Korulbelul 55 faj tartozik ide, melyek tobsege azsiaban, kisebb resze Europaban es eszak-Amerikaban honos. A nemzetsegbe tartozo egyedek, vagyis az almafak termesenek a neve is alma.',to_date('01-MAR-19','DD-MON-RR'),'_r_n_t__');
-Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Szamitogep-tudomany','A szamitogep-programozas egy vagy tobb absztrakt algoritmus megvalositasat jelenti egy bizonyos programozasi nyelven. A programozasban megtalaljuk a muveszet, a tudomany, a matematika es a mernoki tudomany elemeit.',to_date('05-MAR-22','DD-MON-RR'),'g_jani__72');
+Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Szamitogep-tudomany','A szamitogep-programozas egy vagy tobb absztrakt algoritmus megvalositasat jelenti egy bizonyos programozasi nyelven. A programozasban megtalaljuk a muveszet, a tudomany, a matematika es a mernoki tudomany elemeit',to_date('05-MAR-22','DD-MON-RR'),'g_jani__72');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Rendszerfejlesztes','A rendszerfejlesztest a programozas, szoftverfejlesztes egyik lepesekent kezeli. Eszkoztarat a feladat nagysagatol, celjatol fuggoen hasznaljak fel a programozas soran: szabvanyos modellezo, rendszerfejlesztesi modszertan, projektmenedzsment, alkalmazasfejlesztes stb. ',to_date('16-MAR-19','DD-MON-RR'),'g_jani__72');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Macska','A macska, mas neven hazi macska kiseb termetu husevo emlos, amely a ragadozok rendjen belul a macskafelek csaladjanak Felis nemehez es vadmacska fajahoz tartozik. A vadmacska alfaja.',to_date('17-JUL-19','DD-MON-RR'),'_-leo-_');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Pitagorasz-tetel','A Pitagorasz-tetel az euklideszi geometria egyik alapveto allitasa. Barmely derekszogu haromszog leghosszabb oldalanak (atfogojanak) negyzete megegyezik a masik ket oldal (a befogok) negyzetosszegevel.',to_date('22-JUL-21','DD-MON-RR'),'mesi_kurucz');
@@ -166,7 +173,7 @@ Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Hardver','
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Macskafajtak','A macskatenyesztes eredmenyekent a hazi macska szamos fajtajat sikerult kitenyeszteni. Egyes fajtak kialakitasanal a hazi macskat vadon elo macskafajokkal kereszteztek, igy jott letre peldaul a bengali es a szavanna.',to_date('16-MAR-19','DD-MON-RR'),'gizi_deli98');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Almasav','Az almasav savanykas izu, szerves dikarbonsav, ami szamos savanyu etelben megtalalhato. Szintelen kristalyokat alkot. Higroszkopos vegyulet. Jol oldodik vizben es alkoholban. A borostyankosav hidroxiszarmazekanak tekintheto.',to_date('17-JUN-19','DD-MON-RR'),'gizi_deli98');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Szemelyi jog','A szemelyi jog a polgari jog viszonylag onallo jogterulete, amely a szemelyi viszonyok, kulonosen a jogalanyisag es a szemelyisegi jogok szabalyozasan keresztul biztositja, vedi a szemelyi autonomiat, a szemelyek onrendelkezesenek, onmegvalositasanak szabadsagat',to_date('16-OCT-21','DD-MON-RR'),'_rebi_2003');
-Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Teglalap','A teglalap egy olyan negyszog, amelynek minden szoge derekszog. Ket-ket szemkozti oldala egyenlo hosszusagu, ezert minden teglalap egyben paralelogramma is. A negyzet a teglalap egy specialis tipusa, amelynek minden oldala egyenlo. A teglalap belso szogeinek osszege 360°.',to_date('13-JAN-22','DD-MON-RR'),'_cs_i_p_i_');
+Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Teglalap','A teglalap egy olyan negyszog, amelynek minden szoge derekszog. Ket-ket szemkozti oldala egyenlo hosszusagu, ezert minden teglalap egyben paralelogramma is. A negyzet a teglalap egy specialis tipusa, amelynek minden oldala egyenlo. A teglalap belso szogeinek osszege 360',to_date('13-JAN-22','DD-MON-RR'),'_cs_i_p_i_');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Tulajdonnev','A tulajdonnev a fonevek azon fajtaja, amely egy konkret egyedre utal, tehat azonosito funkciot tolt be. Fajtai: szemelynevek, allatnevek, targynevek, foldrajzi nevek, intezmenynevek, markanevek... ',to_date('04-MAR-20','DD-MON-RR'),'*--lina--*');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Petofi Sandor','Petofi Sandor (szuletett Petrovics Sandor, Kiskoros, 1823. januar 1. - Feheregyhaza korul, 1849. julius 31.) magyar kolto, forradalmar, nemzeti hos, a magyar kolteszet egyik legismertebb es egyik legkiemelkedobb alakja.',to_date('14-JUL-20','DD-MON-RR'),'varga__timi');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Kutya','A kutya vagy eb ujjon jaro emlos ragadozo allat, a szurke farkas egy mar kihalt alfajanak haziasitott formaja. Az egyetlen olyan emlos allatfaj, amely tudomanyos neveben megkapta a familiaris, azaz a csaladhoz tartozo jelzot. A kutyakat szokas a tarsallatok soraban emlegetni.',to_date('07-OCT-20','DD-MON-RR'),'evi_nagy');
@@ -222,6 +229,8 @@ Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) v
 Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('_van_dus_','n','deakvanda@gmail.com','7q21tg35s',to_date('20-DEC-86','DD-MON-RR'));
 Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('pisti','n','pistihajdrik@gmail.com','ows7kwiw7',to_date('07-JAN-83','DD-MON-RR'));
 Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('kissferenc','n','kissferenc@gmail.com','nfhhz567e',to_date('19-MAY-72','DD-MON-RR'));
+Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('admin','n','admin@admin','admin',to_date('18-APR-22','DD-MON-RR'));
+Insert into HOME.FELHASZNALO (FELHASZNALONEV,SZERZO_E,EMAIL,JELSZO,SZUL_DATUM) values ('test','n','test@test','test',to_date('12-APR-22','DD-MON-RR'));
 REM INSERTING into HOME.FORRAS
 SET DEFINE OFF;
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Kutya','https://hu.wikipedia.org/wiki/Kutya','A kutya a farkas egy mara mar kihalt alfajanak haziasitasaval jott letre, amint azt mitokondrialis DNS-adatok is bizonyitjak. A haziasitas kezdetenek idopontjat tudomanyos vitak ovezik, de altalaban 10 000-100 000 evvel ezelottre teszik, azonban a haziasitas kezdeteirol semmilyen dokumentum sem maradt fent, ezert csak feltetelezesekre hagyatkozhatunk.');
@@ -256,11 +265,6 @@ Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Szemelyi jog','https:
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Filozofia','https://hu.wikipedia.org/wiki/A_filozofia_alapkerdese','Az empiriokriticizmus (gorog nyelvbol: tapasztalatkritika) szubjektiv idealista filozofiai aramlat, amely szerint a megismeres alaptorvenye a gondolkodas okonomiaja, gazdasagossaga.');
 REM INSERTING into HOME.HIBA_BEJELENTES
 SET DEFINE OFF;
-Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Karl Marx','A szuletesi es halalozasi datum kozott ? van.','eliras','_rudolf_');
-Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Teglalap','A 360 utan a fokjel helyett ? van irva.','eliras',';)_sacika_');
-Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Alma','A tobbsege szo rosszul van irva.','helyesirasi hiba','lali_nagy');
-Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Madarak','Az allatok szo rosszul van irva.','helyesirasi hiba','*petruska*');
-Insert into HOME.HIBA_BEJELENTES (CIM,HIBAJELENTES,HIBANEV,FELHASZNALONEV) values ('Macska','A kisebb szo rosszul van irva.','helyesirasi hiba','yvette');
 REM INSERTING into HOME.KULCSSZO
 SET DEFINE OFF;
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Birosag','Jog','https://birosag.hu/birosagokrol/birosagi-szervezet/birosagi-szervezetrendszer');
@@ -295,7 +299,7 @@ Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Present Perfect','Nyelv
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Teglalap','Negyszog','https://www.amatematika.hu/a_teglalap_es_a_negyzet');
 REM INSERTING into HOME.MODOSITAS
 SET DEFINE OFF;
-Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Teglalap',to_date('10-FEB-22','DD-MON-RR'),'mesi_kurucz');
+Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Szamitogep-tudomany',to_date('22-APR-22','DD-MON-RR'),'g_jani__72');
 Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Filozofia',to_date('12-MAR-20','DD-MON-RR'),'_galambos_norbi_');
 Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Buntetojog',to_date('18-JUN-20','DD-MON-RR'),'marci79');
 Insert into HOME.MODOSITAS (CIM,MIKOR,FELHASZNALONEV) values ('Kolteszet',to_date('20-MAR-21','DD-MON-RR'),'varga__timi');
@@ -408,15 +412,33 @@ Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Szemelyi jog','Jog','Szeme
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Index HIBA_BEJELENTES_PK
+--  DDL for Trigger AUTO_INCREMENT_HIBA
 --------------------------------------------------------
 
-  CREATE UNIQUE INDEX "HOME"."HIBA_BEJELENTES_PK" ON "HOME"."HIBA_BEJELENTES" ("FELHASZNALONEV", "CIM") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
-  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
+  CREATE OR REPLACE EDITIONABLE TRIGGER "HOME"."AUTO_INCREMENT_HIBA" 
+BEFORE INSERT ON hiba_bejelentes
+FOR EACH ROW
+
+BEGIN
+  SELECT hiba_bejelentes_seq.NEXTVAL
+  INTO   :new.id
+  FROM   dual;
+END;
+
+/
+ALTER TRIGGER "HOME"."AUTO_INCREMENT_HIBA" ENABLE;
+--------------------------------------------------------
+--  DDL for Trigger CIKK_MODOSITAS
+--------------------------------------------------------
+
+  CREATE OR REPLACE EDITIONABLE TRIGGER "HOME"."CIKK_MODOSITAS" 
+AFTER UPDATE OF tartalom ON Cikk
+FOR EACH ROW
+BEGIN
+INSERT INTO Modositas VALUES(:OLD.cim, sysdate, :OLD.szerzo);
+END;
+/
+ALTER TRIGGER "HOME"."CIKK_MODOSITAS" ENABLE;
 --------------------------------------------------------
 --  Constraints for Table TEMAKOR
 --------------------------------------------------------
@@ -502,8 +524,8 @@ Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Szemelyi jog','Jog','Szeme
 --  Constraints for Table HIBA_BEJELENTES
 --------------------------------------------------------
 
-  ALTER TABLE "HOME"."HIBA_BEJELENTES" ADD CONSTRAINT "HIBA_BEJELENTES_PK" PRIMARY KEY ("FELHASZNALONEV", "CIM")
-  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  ALTER TABLE "HOME"."HIBA_BEJELENTES" ADD PRIMARY KEY ("ID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
@@ -512,6 +534,7 @@ Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Szemelyi jog','Jog','Szeme
   ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("HIBANEV" NOT NULL ENABLE);
   ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("HIBAJELENTES" NOT NULL ENABLE);
   ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("CIM" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("ID" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table CIKK
 --------------------------------------------------------
@@ -572,14 +595,3 @@ Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Szemelyi jog','Jog','Szeme
 
   ALTER TABLE "HOME"."TEMAKOR" ADD CONSTRAINT "TEMAKOR_FK1" FOREIGN KEY ("CIM")
 	  REFERENCES "HOME"."CIKK" ("CIM") ENABLE;
-	  
---------------------------------------------------------
---  TRIGGERS
---------------------------------------------------------
-
-CREATE OR REPLACE TRIGGER cikk_modositas
-AFTER UPDATE OF tartalom ON Cikk
-FOR EACH ROW
-BEGIN
-INSERT INTO Modositas VALUES(:OLD.cim, sysdate, :OLD.szerzo);
-END;

@@ -33,32 +33,23 @@ if (isset($_GET["src_GET"])) {
 <body>
 <!-- A top navigációs menü. -->
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-    <span class="navbar-text p-2 text-white">Menu</span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <!-- A navigációs menü 1. opciója. -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link " href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="article_list.php">Cikkek</a>
             </li>
             <!-- A navigációs menü 2. opciója. -->
-            <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
-            </li>
+
             <!-- A navigációs menü 3. opciója. -->
             <li class="nav-item">
-                <a class="nav-link" href="Register.html">Register</a>
+                <a class="nav-link" href="error_list.php">Hibák</a>
             </li>
-            <!-- A navigációs menü 3. opciója. -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Menu 4</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Menu 4.1</a>
-                    <a class="dropdown-item" href="#">Menu 4.2</a>
-                    <a class="dropdown-item" href="#">Menu 4.3</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.php">Logout</a>
             </li>
         </ul>
     </div>

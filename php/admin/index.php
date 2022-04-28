@@ -1,20 +1,18 @@
 <?php
 include "../functions/functions.php";
-
 ?>
+
+
 <!DOCTYPE html>
 <html lang="hu-HU">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Mindentudó</title>
-    <link
-        rel="stylesheet"
-        href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
-        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
-        crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../../css/css.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+          integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="../../css/css.css"/>
 </head>
 
 <body>
@@ -22,17 +20,32 @@ include "../functions/functions.php";
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-            <!-- A navigációs menü 1. opciója. -->
             <li class="nav-item">
                 <a class="nav-link text-white" href="index.php">Home</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="admin_list.php">Adminok</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="user_list.php">Felhasználók</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="article_list.php">Cikkek</a>
             </li>
-            <!-- A navigációs menü 2. opciója. -->
-            <!-- A navigációs menü 3. opciója. -->
+            <li class="nav-item">
+                <a class="nav-link" href="source_list.php">Források</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="error_list.php">Hibák</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="modify_list.php">Módosítás</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="topic_list.php">Témakörök</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="logout.php">Logout</a>
@@ -44,12 +57,12 @@ include "../functions/functions.php";
 <div class="container-fluid top">
     <div class="row">
         <div class="col-sm-12 col-lg-12 order-lg-2 order-sm-2">
-            <img src="../../src/logo.png" id="logo" />
+            <img src="../../src/logo.png" id="logo"/>
         </div>
         <div class="col-sm-12 col-lg order-lg-1 order-sm-1"></div>
         <div class="col-sm-12 col-lg order-lg-3 order-sm-3"></div>
     </div>
-    <br />
+    <br/>
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
             <form class="card card-sm" action="article.php" method="get">
@@ -58,20 +71,11 @@ include "../functions/functions.php";
                         <i class="fas fa-search h4 text-body"></i>
                     </div>
                     <div class="col">
-                        <input
-                            class="form-control form-control-lg form-control-borderless"
-                            type="search"
-                            placeholder="Search..."
-                            id="src_bar"
-                            name="src_GET"
-                        />
+                        <input class="form-control form-control-lg form-control-borderless" type="search"
+                               placeholder="Search..." id="src_bar" name="src_GET"/>
                     </div>
                     <div class="col-auto">
-                        <button
-                            class="btn btn-lg btn-success"
-                            id="btn_src"
-                            type="submit"
-                        >
+                        <button class="btn btn-lg btn-success" id="btn_src" type="submit">
                             Search
                         </button>
                     </div>
@@ -79,15 +83,12 @@ include "../functions/functions.php";
             </form>
         </div>
     </div>
-    <br />
+    <br/>
 </div>
 
 <section class="py-6 bg-light-primary">
     <div class="container">
-        <div
-            class="row row-cols-lg-3 row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6 aos-init aos-animate"
-            data-aos="fade-up"
-        >
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6">
             <!-- Cards -->
             <?php
             $s = query("SELECT * FROM CIKK ORDER BY CIM");
@@ -117,23 +118,16 @@ include "../functions/functions.php";
     </div>
 </section>
 
-<nav
-    class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end"
->
+<nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
     <a class="navbar-brand" href="#top">TOP</a>
 </nav>
 
-<script
-    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"
-></script>
-<script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
-    integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
-    crossorigin="anonymous"
-></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
-
-

@@ -40,12 +40,11 @@ if (isset($_GET["updatebtn"])) {
 <body>
     <!-- A top navigációs menü. -->
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-        <span class="navbar-text p-2 ">Menü</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin_list.php">Adminok</a>
                 </li>
@@ -69,6 +68,9 @@ if (isset($_GET["updatebtn"])) {
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="topic_list.php">Témakörök</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>
         </div>

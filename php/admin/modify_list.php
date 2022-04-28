@@ -19,12 +19,11 @@ if (isset($_GET["deletebtn"])) {
 <body>
     <!-- A top navigációs menü. -->
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
-        <span class="navbar-text p-2 ">Menü</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin_list.php">Adminok</a>
                 </li>
@@ -49,6 +48,9 @@ if (isset($_GET["deletebtn"])) {
                 <li class="nav-item">
                     <a class="nav-link" href="topic_list.php">Témakörök</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout.php">Logout</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -62,42 +64,6 @@ if (isset($_GET["deletebtn"])) {
             <div class="col-sm-12 col-lg order-lg-3 order-sm-3"></div>
         </div>
     </div>
-
-    <div class="py-6 bg-light-primary">
-        <div class="container">
-            <div class="row row-cols-lg- row-cols-md-2 row-cols-1 text-center justify-content-center px-xl-6 aos-init aos-animate" data-aos="fade-up">
-                <div class="col my-3">
-                    <div class="card border-hover-primary hover-scale">
-                        <div class="card-body">
-                            <h4 class="font-weight-bold mb-3">Új módosítás:</h4>
-                            <div class="m-sm-4">
-                                <form>
-                                    <div class="form-group">
-                                        <label>Cím</label>
-                                        <input class="form-control form-control-lg" type="text" name="cim" placeholder="Cím" />
-                                    </div>
-                                    <div class="form-group">
-                                        <br />
-                                        <label>Mikor</label>
-                                        <input class="form-control form-control-lg" type="text" name="mikor" placeholder="Mikor" />
-                                    </div>
-                                    <div class="form-group">
-                                        <br />
-                                        <label>Felhasználónév</label>
-                                        <input class="form-control form-control-lg" type="text" name="felhasznalonev" placeholder="Felhasználónév" />
-                                    </div>
-                                    <div class="text-center mt-3">
-                                        <br />
-                                        <button type="submit" class="btn btn-lg btn-primary" id="btn_src">
-                                            Létrehozás
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
                 <div class="col my-3">
                     <div class="card border-hover-primary hover-scale">
