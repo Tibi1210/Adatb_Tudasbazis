@@ -70,6 +70,31 @@ include "../functions/functions.php";
                 <div class="card border-hover-primary hover-scale">
                     <div class="card-body">
                         <div class="custyle">
+                            <h1>Legtöbbet módosított cikk</h1>
+                            <?php
+                            $conn = oci_connect('home', 'asd','localhost/XE') or die;
+
+                            $sql = 'BEGIN LEGTOBBETMODOSITOTT(:message); END;';
+
+                            $stmt = oci_parse($conn, $sql);
+                            oci_bind_by_name($stmt, ':message', $message, 32);
+                            oci_execute($stmt);
+
+                            echo "<p>A legtöbbet módosított cikk $message módosításon esett át.</p>";
+
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
+            <div class="col my-3">
+                <div class="card border-hover-primary hover-scale">
+                    <div class="card-body">
+                        <div class="custyle">
                             <h1>1. Módosítások száma</h1>
                             <?php
                             lekerdezes_table(query("SELECT CIM,Count(CIM) AS DARAB FROM MODOSITAS GROUP BY CIM ORDER BY CIM"));
@@ -175,6 +200,23 @@ include "../functions/functions.php";
                             <h1>6. Szerzök</h1>
                             <?php
                             lekerdezes_table(query("SELECT COUNT(SZERZO_E) AS SZERZOK FROM FELHASZNALO WHERE SZERZO_E='y'"));
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
+            <div class="col my-3">
+                <div class="card border-hover-primary hover-scale">
+                    <div class="card-body">
+                        <div class="custyle">
+                            <h1>7. Kulcsszavak elöfordulása</h1>
+                            <?php
+                            lekerdezes_table(query("SELECT MEGNEVEZES,COUNT(MEGNEVEZES) AS DARAB FROM KULCSSZO GROUP BY MEGNEVEZES ORDER BY MEGNEVEZES"));
                             ?>
                         </div>
                     </div>
