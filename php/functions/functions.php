@@ -73,3 +73,33 @@ function table($s)
     echo "</table>\n";
     echo "</form>";
 }
+
+function lekerdezes_table($s)
+{
+    $updatecol = "";
+    echo "<form>";
+    echo "<table class='table table-striped custab'>\n";
+    $ncols = oci_num_fields($s);
+    echo "<tr>\n";
+    for ($i = 1; $i <= $ncols; ++$i) {
+        $colname = oci_field_name($s, $i);
+        if ($i == 1) {
+            $updatecol = $colname;
+        }
+        echo "  <th><b>" . $colname . "</b></th>\n";
+    }
+
+    echo "</tr>\n";
+
+    while (($row = oci_fetch_array($s, OCI_ASSOC + OCI_RETURN_NULLS)) != false) {
+        echo "<tr>\n";
+        foreach ($row as $item) {
+            echo "<td>";
+            echo $item !== null ? $item : "&nbsp;";
+            echo "</td>\n";
+        }
+        echo "</tr>\n";
+    }
+    echo "</table>\n";
+    echo "</form>";
+}

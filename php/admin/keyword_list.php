@@ -1,6 +1,6 @@
 <?php
 include "../functions/functions.php";
-if (isset($_GET["cim"]) && isset($_GET["megnevezes"])&& isset($_GET["link"])) {
+if (isset($_GET["cim"]) && isset($_GET["megnevezes"]) && isset($_GET["link"])) {
     $cim = $_GET["cim"];
     $megnevezes = $_GET["megnevezes"];
     $link = $_GET["link"];
@@ -13,7 +13,7 @@ if (isset($_GET["cim"]) && isset($_GET["megnevezes"])&& isset($_GET["link"])) {
 }
 if (isset($_GET["deletebtn"])) {
     query("DELETE FROM KULCSSZO WHERE CIM='" . $_GET["deletebtn"] . "'");
-  }
+}
 
 $vaneupdate = false;
 $vane = false;
@@ -68,6 +68,9 @@ if (isset($_GET["updatebtn"])) {
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="topic_list.php">Témakörök</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="nemtrivialis.php">Lekérdezések</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>

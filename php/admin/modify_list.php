@@ -2,7 +2,7 @@
 include "../functions/functions.php";
 if (isset($_GET["deletebtn"])) {
     query("DELETE FROM MODOSITAS WHERE ID='" . $_GET["deletebtn"] . "'");
-  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -49,6 +49,9 @@ if (isset($_GET["deletebtn"])) {
                     <a class="nav-link" href="topic_list.php">Témakörök</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="nemtrivialis.php">Lekérdezések</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>
@@ -64,20 +67,22 @@ if (isset($_GET["deletebtn"])) {
             <div class="col-sm-12 col-lg order-lg-3 order-sm-3"></div>
         </div>
     </div>
-            <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
-                <div class="col my-3">
-                    <div class="card border-hover-primary hover-scale">
-                        <div class="card-body">
-                            <div class="custyle">
-                                <?php
-                                table(query("SELECT * FROM MODOSITAS ORDER BY CIM DESC"));
-                                ?>
-                            </div>
+    <div class="container">
+        <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
+            <div class="col my-3">
+                <div class="card border-hover-primary hover-scale">
+                    <div class="card-body">
+                        <div class="custyle">
+                            <?php
+                            table(query("SELECT * FROM MODOSITAS ORDER BY CIM DESC"));
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
     </div>
 

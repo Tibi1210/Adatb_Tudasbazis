@@ -63,6 +63,9 @@ if (isset($_GET["src_GET"])) {
                   <a class="nav-link" href="topic_list.php">Témakörök</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="nemtrivialis.php">Lekérdezések</a>
+            </li>
+              <li class="nav-item">
                   <a class="nav-link" href="logout.php">Logout</a>
               </li>
           </ul>
