@@ -142,6 +142,7 @@ if (isset($_GET["updatebtn"])) {
                                     } else {
                                         if (isset($_GET["updatebtnfinal"])) {
                                             query("UPDATE CIKK SET CIM='$cim',TARTALOM='$tartalom' WHERE CIM='" . $_GET["updatebtnfinal"] . "'");
+                                            query("INSERT INTO MODOSITAS (CIM, MIKOR, FELHASZNALONEV) VALUES ('" . $cim . "', TO_DATE('" . date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H:i:s") . "', 'YYYY-MM-DD HH24:MI:SS'), '". $_SESSION["felhasznalonev"]."')");
                                         } else {
                                             query("INSERT INTO CIKK (CIM, TARTALOM, LETREHOZAS_DATUM, SZERZO) VALUES ('" . $cim . "', '" . (string)$tartalom . "', TO_DATE('" . date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H:i:s") . "', 'YYYY-MM-DD HH24:MI:SS'), '". $_SESSION["felhasznalonev"]."')");
                                         }

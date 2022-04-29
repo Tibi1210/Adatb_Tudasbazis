@@ -1,7 +1,7 @@
 <?php
 include "../functions/functions.php";
 if (isset($_GET["deletebtn"])) {
-    query("DELETE FROM MODOSITAS WHERE CIM='" . $_GET["deletebtn"] . "'");
+    query("DELETE FROM MODOSITAS WHERE ID='" . $_GET["deletebtn"] . "'");
   }
 ?>
 

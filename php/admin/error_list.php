@@ -1,18 +1,14 @@
 <?php
 include "../functions/functions.php";
-if (isset($_GET["cim"]) && isset($_GET["hibajelentes"]) && isset($_GET["hibanev"]) && isset($_GET["felhasznalonev"])) {
-    $id = $_GET["id"];
+if (isset($_GET["cim"]) && isset($_GET["hibajelentes"]) && isset($_GET["hibanev"])) {
     $cim = $_GET["cim"];
     $hibajelentes = $_GET["hibajelentes"];
     $hibanev = $_GET["hibanev"];
-    $felhasznalonev = $_GET["felhasznalonev"];
     $empty = false;
 } else {
-    $id = 0;
     $cim = "";
     $hibajelentes = "";
     $hibanev = "";
-    $felhasznalonev = "";
     $empty = true;
 }
 if (isset($_GET["deletebtn"])) {
@@ -22,7 +18,7 @@ if (isset($_GET["deletebtn"])) {
 $vaneupdate = false;
 $vane = false;
 if (isset($_GET["updatebtn"])) {
-    $update = query("SELECT * FROM HIBA_BEJELENTES WHERE id='" . $_GET["updatebtn"] . "'");
+    $update = query("SELECT * FROM HIBA_BEJELENTES WHERE ID='" . $_GET["updatebtn"] . "'");
     $updaterow = oci_fetch_array($update, OCI_ASSOC + OCI_RETURN_NULLS);
     $updval = $_GET["updatebtn"];
     $vaneupdate = true;
@@ -102,7 +98,6 @@ if (isset($_GET["updatebtn"])) {
                         <div class="m-sm-4">
                             <form>
                                 <div class="form-group">
-
                                     <label>Cím</label>
                                     <?php
                                     if (isset($_GET["updatebtn"])) {
@@ -134,17 +129,6 @@ if (isset($_GET["updatebtn"])) {
                                     }
                                     ?>
                                 </div>
-                                <div class="form-group">
-                                    <br/>
-                                    <label>Felhasználónév</label>
-                                    <?php
-                                    if (isset($_GET["updatebtn"])) {
-                                        echo "<input class='form-control form-control-lg' type='text' name='felhasznalonev' value='" . $updaterow["FELHASZNALONEV"] . "' placeholder='Felhasználónév' />";
-                                    } else {
-                                        echo "<input class='form-control form-control-lg' type='text' name='felhasznalonev' placeholder='Felhasználónév' />";
-                                    }
-                                    ?>
-                                </div>
                                 <div class="text-center mt-3">
                                     <br/>
                                     <?php
@@ -158,11 +142,11 @@ if (isset($_GET["updatebtn"])) {
                             </form>
                             <?php
                             if (!$empty) {
-                                if ($cim != "" && $hibajelentes != "" && $hibanev != "" && $felhasznalonev != "") {
+                                if ($cim != "" && $hibajelentes != "" && $hibanev != "") {
                                     if (isset($_GET["updatebtnfinal"])) {
-                                        query("UPDATE HIBA_BEJELENTES SET CIM='$cim',HIBAJELENTES='$hibajelentes',HIBANEV='$hibanev',FELHASZNALONEV='$felhasznalonev' WHERE CIM='" . $_GET["updatebtnfinal"] . "'");
+                                        query("UPDATE HIBA_BEJELENTES SET CIM='$cim',HIBAJELENTES='$hibajelentes',HIBANEV='$hibanev',FELHASZNALONEV='". $_SESSION["felhasznalonev"] ."' WHERE ID='" . $_GET["updatebtnfinal"] . "'");
                                     } else {
-                                        query("INSERT INTO HIBA_BEJELENTES (CIM, HIBAJELENTES, HIBANEV, FELHASZNALONEV) VALUES ('" . $cim . "', '" . $hibajelentes . "', '" . $hibanev . "', '" . $felhasznalonev . "')");
+                                        query("INSERT INTO HIBA_BEJELENTES (CIM, HIBAJELENTES, HIBANEV, FELHASZNALONEV) VALUES ('" . $cim . "', '" . $hibajelentes . "', '" . $hibanev . "', '". $_SESSION["felhasznalonev"] ."')");
                                     }
                                 } else {
                                     echo "<br>";
@@ -181,7 +165,6 @@ if (isset($_GET["updatebtn"])) {
                     <div class="card-body">
                         <div class="custyle">
                             <?php
-
                             table(query("SELECT * FROM HIBA_BEJELENTES ORDER BY CIM DESC"));
                             ?>
                         </div>
