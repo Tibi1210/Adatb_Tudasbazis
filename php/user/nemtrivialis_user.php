@@ -18,35 +18,18 @@ include "../functions/functions.php";
     <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
+
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin_list.php">Adminok</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="user_list.php">Felhasználók</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="article_list.php">Cikkek</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="source_list.php">Források</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="error_list.php">Hibák</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="keyword_list.php">Kulcsszavak</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="modify_list.php">Módosítás</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="topic_list.php">Témakörök</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="nemtrivialis.php">Lekérdezések</a>
+                    <a class="nav-link text-white" href="nemtrivialis_user.php">Lekérdezések</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>
@@ -118,6 +101,7 @@ include "../functions/functions.php";
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
             <div class="col my-3">
@@ -261,6 +245,7 @@ include "../functions/functions.php";
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     </div>

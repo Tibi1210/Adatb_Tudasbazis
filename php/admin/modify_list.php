@@ -74,7 +74,7 @@ if (isset($_GET["deletebtn"])) {
                     <div class="card-body">
                         <div class="custyle">
                             <?php
-                            table(query("SELECT * FROM MODOSITAS ORDER BY CIM DESC"));
+                            table(query("SELECT * FROM MODOSITAS ORDER BY MIKOR DESC"));
                             ?>
                         </div>
                     </div>

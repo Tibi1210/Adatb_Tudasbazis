@@ -1,19 +1,19 @@
 <?php
 include "../functions/functions.php";
-if (isset($_GET["cim"]) && isset($_GET["hibajelentes"])&& isset($_GET["hibanev"])) {
+if (isset($_GET["cim"]) && isset($_GET["hibajelentes"]) && isset($_GET["hibanev"])) {
     $cim = $_GET["cim"];
-    $hibajelentes= $_GET["hibajelentes"];
+    $hibajelentes = $_GET["hibajelentes"];
     $hibanev = $_GET["hibanev"];
     $empty = false;
 } else {
     $cim = "";
-    $hibajelentes= "";
+    $hibajelentes = "";
     $hibanev = "";
     $empty = true;
 }
 if (isset($_GET["deletebtn"])) {
     query("DELETE FROM HIBA_BEJELENTES WHERE CIM='" . $_GET["deletebtn"] . "'");
-  }
+}
 
 $vaneupdate = false;
 $vane = false;
@@ -52,6 +52,9 @@ if (isset($_GET["updatebtn"])) {
                 <!-- A navigációs menü 2. opciója. -->
                 <li class="nav-item">
                     <a class="nav-link text-white" href="error_list.php">Hibák</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="nemtrivialis_user.php">Lekérdezések</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.php">Logout</a>
@@ -150,9 +153,9 @@ if (isset($_GET["updatebtn"])) {
                                             echo "<p>Már létezik ilyen hiba!<p>";
                                         } else {
                                             if (isset($_GET["updatebtnfinal"])) {
-                                                query("UPDATE HIBA_BEJELENTES SET CIM='$cim',HIBAJELENTES='$hibajelentes',HIBANEV='$hibanev',FELHASZNALONEV='". $_SESSION["felhasznalonev"] ."' WHERE CIM='" . $_GET["updatebtnfinal"] . "'");
+                                                query("UPDATE HIBA_BEJELENTES SET CIM='$cim',HIBAJELENTES='$hibajelentes',HIBANEV='$hibanev',FELHASZNALONEV='" . $_SESSION["felhasznalonev"] . "' WHERE CIM='" . $_GET["updatebtnfinal"] . "'");
                                             } else {
-                                                query("INSERT INTO HIBA_BEJELENTES (CIM, HIBAJELENTES, HIBANEV, FELHASZNALONEV) VALUES ('" . $cim . "', '" . $hibajelentes . "', '" . $hibanev . "', '". $_SESSION["felhasznalonev"] ."')");
+                                                query("INSERT INTO HIBA_BEJELENTES (CIM, HIBAJELENTES, HIBANEV, FELHASZNALONEV) VALUES ('" . $cim . "', '" . $hibajelentes . "', '" . $hibanev . "', '" . $_SESSION["felhasznalonev"] . "')");
                                             }
                                         }
                                     } else {
@@ -167,7 +170,7 @@ if (isset($_GET["updatebtn"])) {
                 </div>
             </div>
 
-    </div>
+        </div>
     </div>
 
     <nav class="navbar navbar-expand-sm navbar-dark fixed-bottom justify-content-end">
