@@ -1,16 +1,16 @@
 --------------------------------------------------------
---  File created - Saturday-April-30-2022   
+--  File created - Sunday-May-01-2022   
 --------------------------------------------------------
 --------------------------------------------------------
 --  DDL for Sequence HIBA_BEJELENTES_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "HOME"."HIBA_BEJELENTES_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 28 CACHE 20 NOORDER  NOCYCLE   ;
+   CREATE SEQUENCE  "HOME"."HIBA_BEJELENTES_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 18 CACHE 20 NOORDER  NOCYCLE   ;
 --------------------------------------------------------
 --  DDL for Sequence MODOSITAS_SEQ
 --------------------------------------------------------
 
-   CREATE SEQUENCE  "HOME"."MODOSITAS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 113 CACHE 20 NOORDER  NOCYCLE   ;
+   CREATE SEQUENCE  "HOME"."MODOSITAS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE   ;
 --------------------------------------------------------
 --  DDL for Table ADMIN
 --------------------------------------------------------
@@ -154,7 +154,6 @@ Insert into HOME.ADMIN (FELHASZNALONEV,INTEZET,TUDOMANYOS_FOKOZAT,SZAKTERULET) v
 REM INSERTING into HOME.CIKK
 SET DEFINE OFF;
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Alma','Az alma vagy almafa a rozsafelek csaladjaba tartozo novenynemzetseg. Korulbelul 55 faj tartozik ide, melyek tobsege azsiaban, kisebb resze Europaban es eszak-Amerikaban honos. A nemzetsegbe tartozo egyedek, vagyis az almafak termesenek a neve is alma.',to_date('01-MAR-19','DD-MON-RR'),'_r_n_t__');
-Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Szamitogep-tudomany','A szamitogep-programozas egy vagy tobb absztrakt algoritmus megvalositasat jelenti egy bizonyos programozasi nyelven. A programozasban megtalaljuk a muveszet, a tudomany, a matematika es a mernoki tudomany elemeit',to_date('05-MAR-22','DD-MON-RR'),'g_jani__72');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Rendszerfejlesztes','A rendszerfejlesztest a programozas, szoftverfejlesztes egyik lepesekent kezeli. Eszkoztarat a feladat nagysagatol, celjatol fuggoen hasznaljak fel a programozas soran: szabvanyos modellezo, rendszerfejlesztesi modszertan, projektmenedzsment, alkalmazasfejlesztes stb. ',to_date('16-MAR-19','DD-MON-RR'),'g_jani__72');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Macska','A macska, mas neven hazi macska kiseb termetu husevo emlos, amely a ragadozok rendjen belul a macskafelek csaladjanak Felis nemehez es vadmacska fajahoz tartozik. A vadmacska alfaja.',to_date('17-JUL-19','DD-MON-RR'),'_-leo-_');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Pitagorasz-tetel','A Pitagorasz-tetel az euklideszi geometria egyik alapveto allitasa. Barmely derekszogu haromszog leghosszabb oldalanak (atfogojanak) negyzete megegyezik a masik ket oldal (a befogok) negyzetosszegevel.',to_date('22-JUL-21','DD-MON-RR'),'mesi_kurucz');
@@ -170,7 +169,7 @@ Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Karl Marx'
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Madarak','A madarak meszes heju tojassal szaporodo, melegveru gerinces allatok. Mellso vegtagjaik szarnyakka modosultak. Jarolabaik vannak , melyeken megtalalhato a csud,amely elosegiti a landolast. Szegycsontjuk tarajos, melyhez eros mellizmok tapadnak, igy segitve a repulest.',to_date('10-OCT-18','DD-MON-RR'),'elekes_anna');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('allattenyesztes','Az allattenyesztes a mezogazdasag egyik fo teruletet kepezo gazdasagi tevekenyseg. A hatalyos magyar torvenyi meghatarozas szerint "Az allatok tenyesz- es haszonerteket novelo celiranyos tevekenysegek osszessege.',to_date('23-SEP-20','DD-MON-RR'),'eszterrr');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Sakktabla foldterulet','A sakktablasodas olyan helyzetre utal, amikor a foldtulajdon ket vagy tobb tulajdonos kozott keveredik, ami sakktablas mintazatot eredmenyez. Mivel a kiosztott foldteruleteket eltero modon es intenzitassal muvelik, a sakktabla-mintazat igy a levegobol is lathato.',to_date('11-MAR-21','DD-MON-RR'),'*armando;)*');
-Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Present Perfect','A Present Perfect az angol nyelv egyik, a hetkoznapi beszedben gyakran hasznalt igeidoje. Jelentese: present=jelen, perfect=tokeletes, befejezett. osszetett igeido, ket tagbol all: a to have (birtokolni), mint segedige egyszeru jelen idejebol es a foige. ',to_date('06-JAN-22','DD-MON-RR'),'f.imi');
+Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Present Perfect','A Present Perfect az angol nyelv egyik, a hetkoznapi beszedben gyakran hasznalt igeidoje. Jelentese: present=jelen, perfect=tokeletes, befejezett. osszetett igeido, ket tagbol all: a to have (birtokolni), mint segedige egyszeru jelen idejebol es a foige. a',to_date('06-JAN-22','DD-MON-RR'),'f.imi');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('C nyelv','A C egy altalanos celu programozasi nyelv, melyet Dennis Ritchie es fejlesztette ki 1969 es 1973 kozott a UNIX rendszerekre. Idovel joforman minden operacios rendszerre keszitettek C forditoprogramot, es a legnepszerubb programozasi nyelvek egyikeve valt.',to_date('15-JUL-20','DD-MON-RR'),'andikaa_:)_');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Koolaj','A koolaj (mas neven asvanyolaj) a Fold szilard kergeben talalhato termeszetes eredetu, elo szervezetek bomlasaval, atalakulasaval keletkezett asvanyi termek. Fo osszetevoi folyekony halmazallapotu szenhidrogenek.',to_date('31-AUG-21','DD-MON-RR'),'_cs_i_p_i_');
 Insert into HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Atomenergia','Az atomenergia a magreakcio kontrollalt felhasznalasa munka, ho es elektromossag formaju energia letrehozasanak celjabol. Egy iranyitott lancreakcio utan keletkezik es hot hoz letre, amit viz felforralasara, goz eloallitasara, gozturbina meghajtasara hasznalnak.',to_date('05-MAR-21','DD-MON-RR'),'andikaa_:)_');
@@ -247,7 +246,6 @@ Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Pitagorasz-tetel','ht
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Himnusz','https://hu.wikipedia.org/wiki/Himnusz','A mufaj eredete ketsegkivul kultikus, kozossegi, vallasos unnepekhez kapcsolodott. Ezert a koltoi formak kozott maig a legszemelytelenebb, a megenekelt targy uralkodik benne, es nem a fohaszkodo szemelye. A hindu Rigvedat, az egyiptomi himnuszokat a kolto egyenisegenek kizarasa jellemzi, a kozosseg imadja bennuk isteneit.');
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Koolaj','https://hu.wikipedia.org/wiki/Koolaj','A vilagszerte megnovekedett kereslet az energiahordozok irant felerositette a vetelkedest az USA, az EU, Japan kozott. Azonban ezeknek mostanaban mar egy uj ellenfellel kell szembenezniuk, a feltorekvo Kinaval. Kina egyre inkabb azert kuzd, hogy hozzajusson azokhoz az eroforrasokhoz, amelyek kepesek szinten tartani a felszarnyalo gazdasagat.');
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Present Perfect','https://hu.wikipedia.org/wiki/Present_Perfect','Megjegyzes: A regi angol nyelvben a mozgast kifejezo igek befejezett jelenjet nem a to have, hanem a to be igevel kepeztek. Elvetve ma is elofordul pl. az I have gone helyett az I am gone.');
-Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Szamitogep-tudomany','https://hu.wikipedia.org/wiki/Szamitogep-programozas','Programozas olyan, tobb lepesbol allo folyamat, amely soran a programozo a feladat megertesetol eljut a szamitogepen futo program kodolasaig, sot a program dokumentalasaig; a legjellegzetesebb lepesei: specifikalas, algoritmizalas, kodolas, teszteles, hibakereses es -javitas, hatekonysagvizsgalat es -noveles, dokumentalas.');
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Birosag','https://hu.wikipedia.org/wiki/Magyarorszag_birosagai','Az Orszaggyules a birosagi hataskorok jogallami szintu, hatekony ellatasa, a biroi fuggetlenseg elvenek maradektalan megvalositasa es az itelkezes egysegenek biztositasa erdekeben a birosagok szervezeti felepiteserol, feladatairol es igazgatasarol az Alaptorveny vegrehajtasara.');
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Rendszerfejlesztes','https://hu.wikipedia.org/wiki/Szamitogep-programozas','A programkeszites menetenek elso lepese a feladat meghatarozasa, preciz "ujrafogalmazasa". Milyen is legyen, mit varjunk el tole? Nezzunk meg nehany - jonak tuno - kovetelmenyt egyelore cimszavakban!');
 Insert into HOME.FORRAS (CIM,HIVATKOZAS,TARTALOM) values ('Nyelveszet','https://hu.wikipedia.org/wiki/Nyelveszet','Ebben a konyvben a nyelv grammatikajat a megszokottol eltero modszerekkel es egy, a korabbi, bevett elmeletektol kulonbozo nyelvtanmodell kereteben mutatom be. A nyelvtanrol ket diszciplina, a nyelveszet es a kognitiv pszichologia hataran mozogva igyekszem majd kepet alkotni.');
@@ -287,7 +285,6 @@ Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Hardver','Informatika',
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Almasav','Alma','https://www.tuja.hu/kerteszeti-lexikon/almasav.html');
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Karl Marx','Filozofia','https://index.hu/tudomany/tortenelem/2018/05/05/marx_200/');
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Tulajdonnev','Nyelvtan','https://www.nkp.hu/tankonyv/magyar_nyelv_6_nat2020/lecke_01_008');
-Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Szamitogep-tudomany','Informatika','https://wiki.prog.hu/wiki/Mi_az_a_programoz%C3%A1s');
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Petofi Sandor','Kolteszet','http://magyar-irodalom.elte.hu/sulinet/igyjo/setup/portrek/petofi/petofi');
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('C nyelv','Informatika','https://uni-obuda.hu/users/schuster.gyorgy/c.pdf');
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Macska','Macska','https://wikiszotar.hu/ertelmezo-szotar/Macska');
@@ -304,7 +301,6 @@ Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Szemelyi jog','Jog','ht
 Insert into HOME.KULCSSZO (CIM,MEGNEVEZES,LINK) values ('Present Perfect','Nyelvtan','https://angoltanulas.net/hirek/present-perfect/');
 REM INSERTING into HOME.MODOSITAS
 SET DEFINE OFF;
-Insert into HOME.MODOSITAS (ID,CIM,MIKOR,FELHASZNALONEV) values (42,'Szamitogep-tudomany',to_date('22-APR-22','DD-MON-RR'),'g_jani__72');
 Insert into HOME.MODOSITAS (ID,CIM,MIKOR,FELHASZNALONEV) values (43,'Filozofia',to_date('12-MAR-20','DD-MON-RR'),'_galambos_norbi_');
 Insert into HOME.MODOSITAS (ID,CIM,MIKOR,FELHASZNALONEV) values (44,'Buntetojog',to_date('18-JUN-20','DD-MON-RR'),'marci79');
 Insert into HOME.MODOSITAS (ID,CIM,MIKOR,FELHASZNALONEV) values (45,'Kolteszet',to_date('20-MAR-21','DD-MON-RR'),'varga__timi');
@@ -330,7 +326,6 @@ Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Hardver','Informatika','Ha
 Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Almasav','Termeszettudomany','Kemia');
 Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Karl Marx','Filozofia','Karl Marx');
 Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Tulajdonnev','Nyelvtan','Fogalom');
-Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Szamitogep-tudomany','Informatika','Programozas');
 Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Petofi Sandor','Kolteszet','Petofi Sandor');
 Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('C nyelv','Informatika','Programozas');
 Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Macska','allat','Macska');
@@ -406,83 +401,6 @@ Insert into HOME.TEMAKOR (CIM,NEV,ALTEMAKOR) values ('Szemelyi jog','Jog','Szeme
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS" ;
 --------------------------------------------------------
---  DDL for Trigger ADMIN_FELHASZNALO
---------------------------------------------------------
-
-  CREATE OR REPLACE EDITIONABLE TRIGGER "HOME"."ADMIN_FELHASZNALO" 
-BEFORE INSERT ON admin
-FOR EACH ROW
-DECLARE
- CURSOR felhasznalok IS SELECT FELHASZNALONEV FROM FELHASZNALO;
- vane BOOLEAN := FALSE;
-BEGIN 
-   FOR f IN felhasznalok LOOP
-    IF f.felhasznalonev = :NEW.felhasznalonev THEN
-        vane := TRUE;
-        EXIT;
-    END IF;
-   END LOOP;
-   IF vane = FALSE THEN
-     RAISE_APPLICATION_ERROR(-20000, 'Nincs ilyen felhasznalo!');
-   END IF;
-END;
-
-
-INSERT INTO HOME.CIKK (CIM,TARTALOM,LETREHOZAS_DATUM,SZERZO) values ('Teglalap','A teglalap egy olyan negyszog, amelynek minden szoge derekszog. Ket-ket szemkozti oldala egyenlo hosszusagu, ezert minden teglalap egyben paralelogramma is. A negyzet a teglalap egy specialis tipusa, amelynek minden oldala egyenlo. A teglalap belso szogeinek osszege 360',to_date('13-JAN-22','DD-MON-RR'),'_cs_i_p_i_');
-
-create or replace TRIGGER torles_felhasznalo
-BEFORE DELETE ON felhasznalo
-FOR EACH ROW
-BEGIN 
-    DELETE FROM MODOSITAS WHERE CIM=:OLD.CIM;
-    DELETE FROM HIBA_BEJELENTES WHERE CIM=:OLD.CIM;
-    DELETE FROM FORRAS WHERE CIM=:OLD.CIM;
-    DELETE FROM KULCSSZO WHERE CIM=:OLD.CIM;
-    DELETE FROM TEMAKOR WHERE CIM=:OLD.CIM;
-END;
-
-
-CREATE OR REPLACE TRIGGER hiba_cim
-BEFORE INSERT OR UPDATE ON hiba_bejelentes
-FOR EACH ROW
-DECLARE
- CURSOR cimek IS SELECT CIM FROM CIKK;
- vane BOOLEAN := FALSE;
-BEGIN 
-   FOR c IN cimek LOOP
-    IF c.cim = :NEW.cim THEN
-        vane := TRUE;
-        EXIT;
-    END IF;
-   END LOOP;
-   IF vane = FALSE THEN
-     RAISE_APPLICATION_ERROR(-20000, 'Nincs ilyen cimu cikk');
-   END IF;
-END;
-
-
-CREATE OR REPLACE TRIGGER temakor_cim
-BEFORE INSERT OR UPDATE ON temakor
-FOR EACH ROW
-DECLARE
- CURSOR cimek IS SELECT CIM FROM CIKK;
- vane BOOLEAN := FALSE;
-BEGIN 
-   FOR c IN cimek LOOP
-    IF c.cim = :NEW.cim THEN
-        vane := TRUE;
-        EXIT;
-    END IF;
-   END LOOP;
-   IF vane = FALSE THEN
-     RAISE_APPLICATION_ERROR(-20000, 'Nincs ilyen cimu cikk');
-   END IF;
-END;
-
-
-/
-ALTER TRIGGER "HOME"."ADMIN_FELHASZNALO" ENABLE;
---------------------------------------------------------
 --  DDL for Trigger AUTO_INCREMENT_HIBA
 --------------------------------------------------------
 
@@ -495,6 +413,7 @@ BEGIN
   INTO   :new.id
   FROM   dual;
 END;
+
 
 
 
@@ -517,6 +436,7 @@ END;
 
 
 
+
 /
 ALTER TRIGGER "HOME"."AUTO_INCREMENT_MODOSITAS" ENABLE;
 --------------------------------------------------------
@@ -535,6 +455,7 @@ BEGIN
 END;
 
 
+
 /
 ALTER TRIGGER "HOME"."ELLENORZES_MODOSITAS" ENABLE;
 --------------------------------------------------------
@@ -542,7 +463,7 @@ ALTER TRIGGER "HOME"."ELLENORZES_MODOSITAS" ENABLE;
 --------------------------------------------------------
 
   CREATE OR REPLACE EDITIONABLE TRIGGER "HOME"."FORRAS_CIM" 
-BEFORE INSERT OR UPDATE ON forras
+BEFORE INSERT ON forras
 FOR EACH ROW
 DECLARE
  CURSOR cimek IS SELECT CIM FROM CIKK;
@@ -558,8 +479,6 @@ BEGIN
      RAISE_APPLICATION_ERROR(-20000, 'Nincs ilyen cimu cikk');
    END IF;
 END;
-
-
 /
 ALTER TRIGGER "HOME"."FORRAS_CIM" ENABLE;
 --------------------------------------------------------
@@ -585,6 +504,7 @@ BEGIN
 END;
 
 
+
 /
 ALTER TRIGGER "HOME"."HIBA_CIM" ENABLE;
 --------------------------------------------------------
@@ -592,7 +512,7 @@ ALTER TRIGGER "HOME"."HIBA_CIM" ENABLE;
 --------------------------------------------------------
 
   CREATE OR REPLACE EDITIONABLE TRIGGER "HOME"."KULCSSZO_CIM" 
-BEFORE INSERT OR UPDATE ON kulcsszo
+BEFORE INSERT ON kulcsszo
 FOR EACH ROW
 DECLARE
  CURSOR cimek IS SELECT CIM FROM CIKK;
@@ -608,8 +528,6 @@ BEGIN
      RAISE_APPLICATION_ERROR(-20000, 'Nincs ilyen cimu cikk');
    END IF;
 END;
-
-
 /
 ALTER TRIGGER "HOME"."KULCSSZO_CIM" ENABLE;
 --------------------------------------------------------
@@ -617,7 +535,7 @@ ALTER TRIGGER "HOME"."KULCSSZO_CIM" ENABLE;
 --------------------------------------------------------
 
   CREATE OR REPLACE EDITIONABLE TRIGGER "HOME"."TEMAKOR_CIM" 
-BEFORE INSERT OR UPDATE ON temakor
+BEFORE INSERT ON temakor
 FOR EACH ROW
 DECLARE
  CURSOR cimek IS SELECT CIM FROM CIKK;
@@ -633,8 +551,6 @@ BEGIN
      RAISE_APPLICATION_ERROR(-20000, 'Nincs ilyen cimu cikk');
    END IF;
 END;
-
-
 /
 ALTER TRIGGER "HOME"."TEMAKOR_CIM" ENABLE;
 --------------------------------------------------------
@@ -651,6 +567,7 @@ BEGIN
     DELETE FROM KULCSSZO WHERE CIM=:OLD.CIM;
     DELETE FROM TEMAKOR WHERE CIM=:OLD.CIM;
 END;
+
 
 
 /
@@ -670,8 +587,24 @@ BEGIN
 END;
 
 
+
 /
 ALTER TRIGGER "HOME"."TORLES_FELHASZNALO" ENABLE;
+--------------------------------------------------------
+--  DDL for Procedure LEGAKTIVABBFELHASZNALO
+--------------------------------------------------------
+set define off;
+
+  CREATE OR REPLACE EDITIONABLE PROCEDURE "HOME"."LEGAKTIVABBFELHASZNALO" 
+    (aktiv OUT INTEGER)
+AS
+BEGIN
+    SELECT MAX(Count(SZERZO)) INTO aktiv FROM CIKK GROUP BY SZERZO;
+END;
+
+
+
+/
 --------------------------------------------------------
 --  DDL for Procedure LEGTOBBETMODOSITOTT
 --------------------------------------------------------
@@ -683,6 +616,7 @@ AS
 BEGIN
     SELECT MAX(Count(CIM)) INTO legtobb FROM MODOSITAS GROUP BY CIM;
 END;
+
 
 
 /
@@ -700,6 +634,7 @@ BEGIN
     SELECT CIM INTO legujabb FROM CIKK WHERE letrehozas_datum=num;
 END;
 
+
 /
 --------------------------------------------------------
 --  DDL for Procedure LEGUJABBMODOSITAS
@@ -715,118 +650,119 @@ BEGIN
     SELECT CIM INTO legujabb FROM MODOSITAS WHERE MIKOR=num;
 END;
 
+
 /
 --------------------------------------------------------
 --  Constraints for Table TEMAKOR
 --------------------------------------------------------
 
+  ALTER TABLE "HOME"."TEMAKOR" MODIFY ("CIM" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."TEMAKOR" MODIFY ("NEV" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."TEMAKOR" MODIFY ("ALTEMAKOR" NOT NULL ENABLE);
   ALTER TABLE "HOME"."TEMAKOR" ADD CONSTRAINT "TEMAKOR_PK" PRIMARY KEY ("CIM", "NEV")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "HOME"."TEMAKOR" MODIFY ("ALTEMAKOR" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."TEMAKOR" MODIFY ("NEV" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."TEMAKOR" MODIFY ("CIM" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table FORRAS
 --------------------------------------------------------
 
+  ALTER TABLE "HOME"."FORRAS" MODIFY ("CIM" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."FORRAS" MODIFY ("HIVATKOZAS" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."FORRAS" MODIFY ("TARTALOM" NOT NULL ENABLE);
   ALTER TABLE "HOME"."FORRAS" ADD CONSTRAINT "FORRAS_PK" PRIMARY KEY ("CIM", "HIVATKOZAS")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "HOME"."FORRAS" MODIFY ("TARTALOM" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."FORRAS" MODIFY ("HIVATKOZAS" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."FORRAS" MODIFY ("CIM" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table MODOSITAS
 --------------------------------------------------------
 
+  ALTER TABLE "HOME"."MODOSITAS" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."MODOSITAS" MODIFY ("CIM" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."MODOSITAS" MODIFY ("MIKOR" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."MODOSITAS" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
   ALTER TABLE "HOME"."MODOSITAS" ADD PRIMARY KEY ("ID")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "HOME"."MODOSITAS" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."MODOSITAS" MODIFY ("MIKOR" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."MODOSITAS" MODIFY ("CIM" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."MODOSITAS" MODIFY ("ID" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table ADMIN
 --------------------------------------------------------
 
+  ALTER TABLE "HOME"."ADMIN" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."ADMIN" MODIFY ("INTEZET" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."ADMIN" MODIFY ("TUDOMANYOS_FOKOZAT" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."ADMIN" MODIFY ("SZAKTERULET" NOT NULL ENABLE);
   ALTER TABLE "HOME"."ADMIN" ADD CONSTRAINT "ADMIN_PK" PRIMARY KEY ("FELHASZNALONEV")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "HOME"."ADMIN" MODIFY ("SZAKTERULET" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."ADMIN" MODIFY ("TUDOMANYOS_FOKOZAT" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."ADMIN" MODIFY ("INTEZET" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."ADMIN" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table KULCSSZO
 --------------------------------------------------------
 
+  ALTER TABLE "HOME"."KULCSSZO" MODIFY ("CIM" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."KULCSSZO" MODIFY ("MEGNEVEZES" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."KULCSSZO" MODIFY ("LINK" NOT NULL ENABLE);
   ALTER TABLE "HOME"."KULCSSZO" ADD CONSTRAINT "KULCSSZO_PK" PRIMARY KEY ("CIM", "MEGNEVEZES")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "HOME"."KULCSSZO" MODIFY ("LINK" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."KULCSSZO" MODIFY ("MEGNEVEZES" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."KULCSSZO" MODIFY ("CIM" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table FELHASZNALO
 --------------------------------------------------------
 
+  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("SZERZO_E" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("EMAIL" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("JELSZO" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("SZUL_DATUM" NOT NULL ENABLE);
   ALTER TABLE "HOME"."FELHASZNALO" ADD CONSTRAINT "FELHASZNALO_PK" PRIMARY KEY ("FELHASZNALONEV")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("SZUL_DATUM" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("JELSZO" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("EMAIL" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("SZERZO_E" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."FELHASZNALO" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table HIBA_BEJELENTES
 --------------------------------------------------------
 
+  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("ID" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("CIM" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("HIBAJELENTES" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("HIBANEV" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
   ALTER TABLE "HOME"."HIBA_BEJELENTES" ADD PRIMARY KEY ("ID")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("FELHASZNALONEV" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("HIBANEV" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("HIBAJELENTES" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("CIM" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."HIBA_BEJELENTES" MODIFY ("ID" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Constraints for Table CIKK
 --------------------------------------------------------
 
-  ALTER TABLE "HOME"."CIKK" MODIFY ("CIM" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."CIKK" MODIFY ("SZERZO" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."CIKK" MODIFY ("TARTALOM" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."CIKK" MODIFY ("LETREHOZAS_DATUM" NOT NULL ENABLE);
   ALTER TABLE "HOME"."CIKK" ADD CONSTRAINT "CIKK_PK" PRIMARY KEY ("CIM")
   USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
   TABLESPACE "USERS"  ENABLE;
-  ALTER TABLE "HOME"."CIKK" MODIFY ("LETREHOZAS_DATUM" NOT NULL ENABLE);
-  ALTER TABLE "HOME"."CIKK" MODIFY ("TARTALOM" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."CIKK" MODIFY ("SZERZO" NOT NULL ENABLE);
+  ALTER TABLE "HOME"."CIKK" MODIFY ("CIM" NOT NULL ENABLE);
 --------------------------------------------------------
 --  Ref Constraints for Table ADMIN
 --------------------------------------------------------
