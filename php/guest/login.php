@@ -121,7 +121,7 @@ if (isset($_POST['login'])) {
                                                 <br/>
                                                 <?php
                                                 if (!$sikeres) {
-                                                    echo "<p>A beírt email-cím és/vagy jelszó nem megfelelő!</p>";
+                                                    echo "<p>A beírt felhasználónév és/vagy jelszó nem megfelelő!</p>";
                                                 }
 
                                                 echo '<button type="submit" class="btn btn-lg btn-primary" name="login" id="btn_src">Bejelentkezés</button>';

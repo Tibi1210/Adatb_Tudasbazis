@@ -108,6 +108,28 @@ include "../functions/functions.php";
                 <div class="card border-hover-primary hover-scale">
                     <div class="card-body">
                         <div class="custyle">
+                            <h1>Legaktívabb felhasználó</h1>
+                            <?php
+                            $conn = oci_connect('home', 'asd', 'localhost/XE') or die;
+                            $sql = 'BEGIN LEGAKTIVABBFELHASZNALO(:message); END;';
+                            $stmt = oci_parse($conn, $sql);
+                            oci_bind_by_name($stmt, ':message', $message, 32);
+                            oci_execute($stmt);
+                            echo "<p>A legaktívabb felhasználó $message db cikket írt.</p>";
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
+            <div class="col my-3">
+                <div class="card border-hover-primary hover-scale">
+                    <div class="card-body">
+                        <div class="custyle">
                             <h1>1. Módosítások száma</h1>
                             <?php
                             lekerdezes_table(query("SELECT CIM,Count(CIM) AS DARAB FROM MODOSITAS GROUP BY CIM ORDER BY CIM"));
@@ -239,6 +261,86 @@ include "../functions/functions.php";
                             <h1>9. Cikkek forrásai</h1>
                             <?php
                             lekerdezes_table(query("SELECT CIKK.CIM,KULCSSZO.LINK,FORRAS.HIVATKOZAS FROM CIKK,FORRAS,KULCSSZO WHERE CIKK.CIM=FORRAS.CIM AND CIKK.CIM=KULCSSZO.CIM"));
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
+            <div class="col my-3">
+                <div class="card border-hover-primary hover-scale">
+                    <div class="card-body">
+                        <div class="custyle">
+                            <h1>10. Felhasználók adatai, akik adminok is</h1>
+                            <?php
+                            lekerdezes_table(query("SELECT ADMIN.FELHASZNALONEV, ADMIN.INTEZET, ADMIN.TUDOMANYOS_FOKOZAT, ADMIN.SZAKTERULET, FELHASZNALO.EMAIL, FELHASZNALO.SZUL_DATUM FROM ADMIN, FELHASZNALO WHERE ADMIN.FELHASZNALONEV=FELHASZNALO.FELHASZNALONEV"));
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
+            <div class="col my-3">
+                <div class="card border-hover-primary hover-scale">
+                    <div class="card-body">
+                        <div class="custyle">
+                            <h1>11. Cikkek témaköréhez tarzozó adminok</h1>
+                            <?php
+                            lekerdezes_table(query("SELECT CIKK.CIM,TEMAKOR.NEV, ADMIN.FELHASZNALONEV FROM TEMAKOR, ADMIN, CIKK WHERE ADMIN.SZAKTERULET=TEMAKOR.NEV AND CIKK.CIM=TEMAKOR.CIM"));
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
+            <div class="col my-3">
+                <div class="card border-hover-primary hover-scale">
+                    <div class="card-body">
+                        <div class="custyle">
+                            <h1>12. Cikkek kulcsszavai, forrásai</h1>
+                            <?php
+                            lekerdezes_table(query("SELECT CIKK.CIM, CIKK.SZERZO, KULCSSZO.MEGNEVEZES, FORRAS.HIVATKOZAS FROM CIKK, KULCSSZO, FORRAS WHERE CIKK.CIM=KULCSSZO.CIM AND CIKK.CIM=FORRAS.CIM"));
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
+            <div class="col my-3">
+                <div class="card border-hover-primary hover-scale">
+                    <div class="card-body">
+                        <div class="custyle">
+                            <h1>13. Módosítások adminok által</h1>
+                            <?php
+                            lekerdezes_table(query("SELECT MODOSITAS.CIM, MODOSITAS.FELHASZNALONEV FROM MODOSITAS, ADMIN WHERE MODOSITAS.FELHASZNALONEV=ADMIN.FELHASZNALONEV"));
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row row-cols-lg row-cols-md row-cols text-center justify-content-center px-xl">
+            <div class="col my-3">
+                <div class="card border-hover-primary hover-scale">
+                    <div class="card-body">
+                        <div class="custyle">
+                            <h1>14. Adminok cikkei</h1>
+                            <?php
+                            lekerdezes_table(query("SELECT CIKK.CIM, CIKK.SZERZO FROM CIKK, ADMIN WHERE CIKK.SZERZO=ADMIN.FELHASZNALONEV"));
                             ?>
                         </div>
                     </div>
